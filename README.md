@@ -1,2 +1,2 @@
-# mysite2
-use angularjs
+# angular-mysite2
+mysite2前端
