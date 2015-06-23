@@ -1,0 +1,22 @@
+.lang-translate {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	display: inline-block;
+	min-width: 80px;
+	font-size: 14px;
+	text-align: center;
+		ul {
+			position: absolute;
+			bottom: 100%;
+			width: 100%;
+			line-height: 28px;
+			li {
+				margin: 1px 0 0;
+				background-color: @bg-page;
+				&:hover, &.active {
+					background-color: darken(@bg-page, 20%)
+				}
+			}
+	}
+}

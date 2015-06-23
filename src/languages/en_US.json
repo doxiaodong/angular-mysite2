@@ -1,0 +1,12 @@
+{
+  "title": "Lovely House",
+  "langSetting": "语言设置",
+  "navbar": {
+    "index": "Home",
+    "article": "Articles",
+    "account": "Account",
+    "fourth": "At Will",
+    "signin": "Signin",
+    "signout": "Signout"
+  }
+}

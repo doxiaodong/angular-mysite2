@@ -1,0 +1,28 @@
+<header class="header" ng-controller="NavbarCtrl">
+  <nav class="nav" index="{{ index }}">
+    <div id="USER">
+      <div ng-if="user.isSignin()">
+        <div class="header-side">
+          <span>{{ user.nickName }}</span>
+          <span class="signout a" ng-click="signOut()">{{ 'navbar.signout' | translate }}</span>
+        </div>
+      </div>
+      <div ng-if="!user.isSignin()">
+        <div class="a header-side" ng-click="showSign()">{{ 'navbar.signin' | translate }}</div>
+      </div>
+    </div>
+    <div class="nav-list-container">
+      <div class="slider-nav" index="{{ index }}"></div>
+      <ul class="nav-list">
+        <li><a class="each-nav a" ui-sref="home" ng-class="{ 'active': index===0 }" ng-click="selectIndex(0)">{{ 'navbar.index' | translate }}</a></li>
+        <li><a class="each-nav a" ui-sref="articles" ng-class="{ 'active': index===1 }" ng-click="selectIndex(1)">{{ 'navbar.article' | translate }}</a>
+        </li>
+        <li id="account_nav">
+          <a ng-if="user.isSignin()" class="each-nav account a" href="###" ng-class="{ 'active': index===2 }" ng-click="selectIndex(2)">{{ 'navbar.account' | translate }}</a>
+          <a ng-if="!user.isSignin()" class="each-nav sign a" ng-click="showSign()">{{ 'navbar.account' | translate }}</a>
+        </li>
+        <li><a class="each-nav a" target="_blank" ng-class="{ 'active': index===3 }" ng-click="selectIndex(3)">{{ 'navbar.fourth' | translate }}</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

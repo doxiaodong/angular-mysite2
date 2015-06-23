@@ -1,0 +1,67 @@
+.left-right(@left) {
+  & {
+    position: relative;
+  }
+  & > .left {
+    display: inline-block;
+    float: left;
+    width: @left;
+  }
+  & > .right {
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: @left + 10px;
+  }
+}
+.right-left(@right) {
+  & {
+    position: relative;
+  }
+  & > .right {
+    display: inline-block;
+    float: right;
+    width: @right;
+  }
+  & > .left {
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: @right + 10px;
+  }
+}
+
+#message {
+  margin: 0 0 10px;
+  .each-message {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    .left-right(100px);
+    .username {
+      color: rgb(255, 99, 71);
+    }
+    .content {
+      min-height: 18px;
+    }
+  }
+}
+#write_form {
+  #write_input {
+    max-width: 768px;
+  }
+  .main.btn {
+    margin-top: 10px;
+  }
+}
+
+
+#myCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

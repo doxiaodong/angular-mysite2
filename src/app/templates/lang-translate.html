@@ -1,0 +1,6 @@
+<div class="lang-translate">
+  <p class="a" ng-click="show = !show">{{ 'langSetting' | translate }}</p>
+  <ul ng-show="show">
+    <li class="a" ng-click="changeLanguage(lang.key)" ng-class="{ 'active': selected===lang.key }" ng-repeat="lang in langs">{{ lang.word }}</li>
+  </ul>
+</div>

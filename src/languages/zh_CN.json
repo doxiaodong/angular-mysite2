@@ -1,0 +1,12 @@
+{
+  "title": "亲爱的小窝",
+  "langSetting": "Language",
+  "navbar": {
+    "index": "首页",
+    "article": "文章列表",
+    "account": "账户中心",
+    "fourth": "瞎扯淡",
+    "signin": "登录",
+    "signout": "退出"
+  }
+}

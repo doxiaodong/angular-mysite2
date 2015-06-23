@@ -1,0 +1,78 @@
+#ACCOUNT_SETTING .form-group {
+  margin: 10px auto;
+  label {
+    float: left;
+  }
+  .form-label {
+    min-width: 150px;
+    padding: 6px 12px;
+    text-align: right;
+  }
+  .form-control {
+    float: left;
+    max-width: 320px;
+  }
+  @media screen and (max-width: 489px) {
+    .form-label {
+      text-align: left;
+      min-width: 0;
+      padding: 6px 5px;
+    }
+
+    .width-0 {
+      padding: 6px 0;
+    }
+
+    .form-control {
+      max-width: 100%;
+    }
+  }
+  .icon {
+    position: relative;
+    top: 0;
+    right: 22px;
+  }
+}
+
+@pic-width: 60px;
+.head-pic {
+  width: @pic-width;
+  height: @pic-width;
+  border-radius: 100%;
+  background-color: darken(#fff, 10%);
+  img {
+    width: @pic-width - 10px;
+    height: @pic-width - 10px;
+    border-radius: 100%;
+    margin: 5px;
+    display: inline-block;
+  }
+}
+
+.account {
+  .each-inner {
+    .name {
+      line-height: @pic-width;
+      padding: 0 10px;
+    }
+    .sex {
+      width: @pic-width;
+      text-align: center;
+    }
+    .line {
+      margin-top: 10px;
+    }
+  }
+}
+
+.reply {
+  .user {
+    color: tomato;
+  }
+}
+
+.account {
+  .each-reply:hover {
+    background-color: #eee;
+  }
+}
