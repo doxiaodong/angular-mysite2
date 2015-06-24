@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .directive('langTranslate', function($translate) {
+  .directive('langTranslate', function($translate, $rootScope, $timeout) {
     return {
       restrict: 'A',
       replace: true,
@@ -24,6 +24,10 @@ angular.module('angularMysite2')
           $translate.use(key);
           scope.selected = key;
           scope.show = false;
+
+          $timeout(function() {
+            $rootScope.$broadcast('languageChange');
+          }, 30);
         };
       }
     };
@@ -41,6 +45,17 @@ angular.module('angularMysite2')
         scope.register = {
 
         };
+      }
+    };
+  })
+  .directive('xdTitle', function(setTitle, $rootScope) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attr) {
+        setTitle.brocastTitle(attr.xdTitle);
+        $rootScope.$on('languageChange', function() {
+          setTitle.brocastTitle(attr.xdTitle);
+        });
       }
     };
   })

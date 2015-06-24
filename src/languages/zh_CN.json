@@ -8,5 +8,9 @@
     "fourth": "瞎扯淡",
     "signin": "登录",
     "signout": "退出"
+  },
+  "titles": {
+    "homeTitle": "亲爱的小窝",
+    "articleListTitle": "文章列表"
   }
 }

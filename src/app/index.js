@@ -43,4 +43,10 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   .config(function(localStorageServiceProvider) {
   	localStorageServiceProvider.setPrefix('xd');
   })
+  .run(function($rootScope) {
+    $rootScope.title = '亲爱的小窝';
+    $rootScope.$on('titleChange', function(e, title) {
+      $rootScope.title = title;
+    });
+  })
 ;

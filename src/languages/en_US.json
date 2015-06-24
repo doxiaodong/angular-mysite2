@@ -8,5 +8,9 @@
     "fourth": "At Will",
     "signin": "Signin",
     "signout": "Signout"
+  },
+  "titles": {
+    "homeTitle": "Lovely House",
+    "articleListTitle": "Article List"
   }
 }
