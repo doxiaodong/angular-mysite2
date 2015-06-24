@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('NavbarCtrl', function($scope) {
+  .controller('NavbarCtrl', function($state, $scope) {
+    console.log($state, $state.current);
     $scope.index = 0;
 
     $scope.showSign = function() {

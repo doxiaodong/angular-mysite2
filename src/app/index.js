@@ -24,6 +24,8 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         }
       })
       /* account-tab */
+
+      /* fourth-tab */
       ;
 
     $urlRouterProvider.otherwise('/');
@@ -32,10 +34,10 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   	$translateProvider.useSanitizeValueStrategy('escaped');
 
   	$translateProvider.useStaticFilesLoader({
-	    prefix: "/languages/",
-	    suffix: ".json"
+	    prefix: 'app/../languages/',
+	    suffix: '.json'
 	  });
-  	$translateProvider.preferredLanguage("en_US");
+  	$translateProvider.preferredLanguage('en_US');
   	$translateProvider.useLocalStorage();
   })
   .config(function(localStorageServiceProvider) {
