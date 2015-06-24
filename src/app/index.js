@@ -15,7 +15,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
       })
       /* article-tab */
       .state('articles', {
-        url: '/article/',
+        url: '/article/:category/',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-list.html',
@@ -23,6 +23,15 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
           }
         }
       })
+      //.state('article', {
+      //  url: '/article/:category/:id/',
+      //  views: {
+      //    'article-tab': {
+      //      templateUrl: 'app/article/article-list.html',
+      //      controller: 'ArticleListCtrl'
+      //    }
+      //  }
+      //})
       /* account-tab */
 
       /* fourth-tab */

@@ -12,5 +12,21 @@
   "titles": {
     "homeTitle": "Lovely House",
     "articleListTitle": "Article List"
+  },
+  "pages": {
+    "home": {
+      "homeHeader": "Hot Articles"
+    },
+    "article": {
+      "articlesHeader": "Article List",
+      "articleCategory": "Category",
+      "replies": "Replies",
+      "reply": "Reply",
+      "delete": "Delete",
+      "floor": "Floor",
+      "replyArticle": "Comment",
+      "commentPlaceholder": "Write your opinions~",
+      "comment": "Comment"
+    }
   }
 }

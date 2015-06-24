@@ -1,1 +1,33 @@
-<div xd-title="{{ 'titles.articleListTitle' | translate }}">article</div>
+<div class="pages" xd-title="{{ 'titles.articleListTitle' | translate }}">
+  <div class="page-block side right">
+    <div class="right">
+      <div class="each-header clearfix">
+        <span class="big-size">{{ 'pages.article.articleCategory' | translate }}</span>
+      </div>
+      <div class="each-inner">
+        <ul class="side-list clearfix">
+          <li class="nowrap" ng-repeat="category in categories">
+            <span class="a type" ng-class="{ 'active': articleList.category === category.key }" ui-sref="articles({category: category.key})">{{ category.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="left"></div>
+  </div>
+
+  <div class="page-block left">
+    <div class="each-header">
+      <span class="big-size">{{ 'pages.article.articlesHeader' | translate }}</span>
+    </div>
+    <div class="each-inner">
+      <ul class="articles">
+        <li class="article" ng-repeat="article in articles">
+          <div class="title">
+            <span class="a" ui-sref="home">{{ article.title }}</span>
+          </div>
+          <div class="time">{{ article.createTime }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

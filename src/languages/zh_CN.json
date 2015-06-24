@@ -12,5 +12,21 @@
   "titles": {
     "homeTitle": "亲爱的小窝",
     "articleListTitle": "文章列表"
+  },
+  "pages": {
+    "home": {
+      "homeHeader": "热门文章"
+    },
+    "article": {
+      "articlesHeader": "文章列表",
+      "articleCategory": "分类",
+      "replies": "回复",
+      "reply": "回复",
+      "delete": "删除",
+      "floor": "楼",
+      "replyArticle": "发表评论",
+      "commentPlaceholder": "来交流下吧～",
+      "comment": "发布"
+    }
   }
 }

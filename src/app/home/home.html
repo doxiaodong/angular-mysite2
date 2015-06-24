@@ -1,3 +1,17 @@
 <div class="pages" xd-title="{{ 'titles.homeTitle' | translate }}">
-  <div xd-title="s"></div>
+  <div class="page-block">
+    <div class="each-header">
+      <span class="big-size">{{ 'pages.home.homeHeader' | translate }}</span>
+    </div>
+    <div class="each-inner">
+      <ul class="articles">
+        <li class="article" ng-repeat="article in articles">
+          <div class="title">
+            <span class="a" ui-sref="home">{{ article.title }}</span>
+          </div>
+          <div class="time">{{ article.createTime }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
