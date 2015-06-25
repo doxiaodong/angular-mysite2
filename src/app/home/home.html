@@ -7,7 +7,7 @@
       <ul class="articles">
         <li class="article" ng-repeat="article in articles">
           <div class="title">
-            <span class="a" ui-sref="home">{{ article.title }}</span>
+            <span class="a" ui-sref="article({category: article.category, id: article.id})">{{ article.title }}</span>
           </div>
           <div class="time">{{ article.createTime }}</div>
         </li>

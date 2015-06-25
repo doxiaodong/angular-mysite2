@@ -22,6 +22,7 @@
       "articleCategory": "分类",
       "replies": "回复",
       "reply": "回复",
+      "lowercaseReply": "回复",
       "delete": "删除",
       "floor": "楼",
       "replyArticle": "发表评论",

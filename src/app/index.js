@@ -23,15 +23,15 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
           }
         }
       })
-      //.state('article', {
-      //  url: '/article/:category/:id/',
-      //  views: {
-      //    'article-tab': {
-      //      templateUrl: 'app/article/article-list.html',
-      //      controller: 'ArticleListCtrl'
-      //    }
-      //  }
-      //})
+      .state('article', {
+        url: '/article/:category/:id/',
+        views: {
+          'article-tab': {
+            templateUrl: 'app/article/article-detail.html',
+            controller: 'ArticleDetailCtrl'
+          }
+        }
+      })
       /* account-tab */
 
       /* fourth-tab */
@@ -56,6 +56,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {
       $rootScope.title = title;
+      $rootScope.$emit('pages.afterEnter');
     });
   })
 ;

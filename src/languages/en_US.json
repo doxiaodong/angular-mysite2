@@ -20,8 +20,9 @@
     "article": {
       "articlesHeader": "Article List",
       "articleCategory": "Category",
-      "replies": "Replies",
+      "replies": "replies",
       "reply": "Reply",
+      "lowercaseReply": "reply",
       "delete": "Delete",
       "floor": "Floor",
       "replyArticle": "Comment",

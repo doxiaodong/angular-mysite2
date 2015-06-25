@@ -1,4 +1,4 @@
-<div class="pages" xd-title="{{ articleDetailTitle }}">
+<div class="pages" xd-title="{{ article.articleDetailTitle }}">
   <div class="page-block side right">
     <div class="right">
       <div class="each-header clearfix">
@@ -7,7 +7,7 @@
       <div class="each-inner">
         <ul class="side-list clearfix">
           <li class="nowrap" ng-repeat="category in categories">
-            <span class="a type" ng-class="{ 'active': article.category === category.key }" ui-sref="home">{{ category.name }}</span>
+            <span class="a type" ng-class="{ 'active': article.category.key === category.key }" ui-sref="home">{{ category.name }}</span>
           </li>
         </ul>
       </div>
@@ -17,22 +17,22 @@
 
   <div class="page-block left">
     <div class="each-header">
-      <span class="full-title big-size">{{ articleDetailTitle }}</span>
-      <div class="changes">• {{ article.createTime }} • {{ article.category }}</div>
+      <span class="full-title big-size">{{ article.articleDetailTitle }}</span>
+      <div class="changes">• {{ article.createTime }} • {{ article.category.name }}</div>
     </div>
     <div class="each-inner">
-      <div class="each-article"></div>
+      <div class="each-article">{{ article.content }}</div>
     </div>
   </div>
 
   <div class="page-block left">
     <div class="each-header">
-      <span class="active-color count-replys">{{ article.count }}</span>{{ 'pages.article.replies' | translate }}
+      <span class="active-color count-replys">{{ articleReplies }} </span>{{ 'pages.article.replies' | translate }}
     </div>
     <div class="each-inner">
       <ul class="replies">
         <li class="each-reply root-reply" ng-repeat="reply in replies">
-          <img class="pic left" ng-src="reply.replyUser.pic" alt="">
+          <img class="pic left" ng-src="{{ reply.replyUser.pic }}" alt="">
           <div class="right">
             <div class="word">
               <div class="user">{{ reply.replyUser.nickName }}</div>
@@ -47,17 +47,17 @@
           </div>
           <ul class="sub-reply">
             <li class="each-reply" ng-repeat="subReply in reply.subReplies">
-              <img class="pic left" ng-src="subReply.replyUser.pic" alt="">
+              <img class="pic left" ng-src="{{ subReply.replyUser.pic }}" alt="">
               <div class="right">
                 <div class="word">
-                  <div class="user">{{ subReply.replyUser.nickName }}<span class="nomal-color">{{ 'pages.article.reply' | translate }}</span>{{ subReply.replyObject.nickName }}</div>
+                  <div class="user">{{ subReply.replyUser.nickName }}<span class="nomal-color"> {{ 'pages.article.lowercaseReply' | translate }} </span>{{ subReply.replyObject.nickName }}</div>
                   <div class="mes">{{ subReply.content }}</div>
                 </div>
-              </div>
-              <div class="message">
-                <span class="time">{{ subReply.time }}</span>
-                <span class="pointer icon ion-reply a">{{ 'pages.article.reply' | translate }}</span>
-                <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
+                <div class="message">
+                  <span class="time">{{ subReply.time }}</span>
+                  <span class="pointer icon ion-reply a">{{ 'pages.article.reply' | translate }}</span>
+                  <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
+                </div>
               </div>
             </li>
 
@@ -75,13 +75,13 @@
     </div>
 
     <div class="each-inner">
-      <p>{{ 'pages.article.replyArticle' |translate }}:</p>
+      <p>{{ 'pages.article.replyArticle' | translate }}:</p>
 
       <form ng-submit="comment()" name="REPLY_ARTICLE" class="form">
         <div class="form-group clearfix">
           <label for="add_content"></label>
-          <textarea class="form-control reply-textarea" id="add_content" cols="30" rows="10" name="content" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
-          <button ng-disabled="!REPLY_ARTICLE.$valid" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
+          <textarea ng-model="comment.content" class="form-control reply-textarea" id="add_content" cols="30" rows="10" name="content" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+          <button ng-disabled="REPLY_ARTICLE.$invalid" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
         </div>
       </form>
     </div>
