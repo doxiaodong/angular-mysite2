@@ -48,11 +48,13 @@ angular.module('angularMysite2')
       }
     };
   })
-  .directive('xdTitle', function(setTitle, $rootScope) {
+  .directive('xdTitle', function(setTitle, $rootScope, $timeout) {
     return {
       restrict: 'A',
       link: function(scope, element, attr) {
-        setTitle.brocastTitle(attr.xdTitle);
+        $timeout(function() {
+          setTitle.brocastTitle(attr.xdTitle);
+        }, 20);
         $rootScope.$on('languageChange', function() {
           setTitle.brocastTitle(attr.xdTitle);
         });

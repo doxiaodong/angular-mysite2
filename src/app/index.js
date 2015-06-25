@@ -52,11 +52,29 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   .config(function(localStorageServiceProvider) {
   	localStorageServiceProvider.setPrefix('xd');
   })
-  .run(function($rootScope) {
+  .run(function($rootScope, $window, $document, $translate, localStorageService) {
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {
       $rootScope.title = title;
       $rootScope.$emit('pages.afterEnter');
     });
+    $document[0].addEventListener('visibilitychange', function() {
+      var state = $document[0].visibilityState;
+      if (state === 'hidden') {
+        $window.sessionStorage.setItem('visibilityChangeTitle', $rootScope.title);
+        var title = '点我瞧瞧吧～';
+        var language = $translate.storage().get() || 'zh_CN';
+        if (language === 'en_US') {
+          title = 'Click me to see see~';
+        }
+        $rootScope.title = title;
+      }
+      if (state === 'visible') {
+        $rootScope.title = $window.sessionStorage.getItem('visibilityChangeTitle');
+        $window.sessionStorage.removeItem('visibilityChangeTitle');
+      }
+      $rootScope.$apply();
+    });
+
   })
 ;

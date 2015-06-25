@@ -26,6 +26,7 @@
       "delete": "Delete",
       "floor": "Floor",
       "replyArticle": "Comment",
+      "replyPlaceholder": "reply",
       "commentPlaceholder": "Write your opinions~",
       "comment": "Comment"
     }

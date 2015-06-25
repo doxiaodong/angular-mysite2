@@ -27,7 +27,7 @@
 
   <div class="page-block left">
     <div class="each-header">
-      <span class="active-color count-replys">{{ articleReplies }} </span>{{ 'pages.article.replies' | translate }}
+      <span class="active-color count-replys">{{ articleReplies }}&nbsp;</span>{{ 'pages.article.replies' | translate }}
     </div>
     <div class="each-inner">
       <ul class="replies">
@@ -40,7 +40,7 @@
             </div>
             <div class="message">
               <span class="time">{{ reply.time }}</span>
-              <span class="pointer icon ion-reply a">{{ 'pages.article.reply' | translate }}</span>
+              <span class="pointer icon ion-reply a" ng-click="showReplyInput(reply, reply)">{{ 'pages.article.reply' | translate }}</span>
               <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
               <span class="foor">{{ reply.index }}{{ 'pages.article.floor' | translate }}</span>
             </div>
@@ -50,21 +50,22 @@
               <img class="pic left" ng-src="{{ subReply.replyUser.pic }}" alt="">
               <div class="right">
                 <div class="word">
-                  <div class="user">{{ subReply.replyUser.nickName }}<span class="nomal-color"> {{ 'pages.article.lowercaseReply' | translate }} </span>{{ subReply.replyObject.nickName }}</div>
+                  <div class="user">{{ subReply.replyUser.nickName }}<span class="nomal-color">&nbsp;{{ 'pages.article.lowercaseReply' | translate }}&nbsp;</span>{{ subReply.replyObject.nickName }}</div>
                   <div class="mes">{{ subReply.content }}</div>
                 </div>
                 <div class="message">
                   <span class="time">{{ subReply.time }}</span>
-                  <span class="pointer icon ion-reply a">{{ 'pages.article.reply' | translate }}</span>
+                  <span class="pointer icon ion-reply a" ng-click="showReplyInput(reply, subReply)">{{ 'pages.article.reply' | translate }}</span>
                   <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
                 </div>
               </div>
             </li>
 
-            <li class="reply-floor" ng-show="false">
-              <form class="form" name="REPLY_COMMENT" ng-submit="reply()">
+            <li class="reply-floor show" ng-show="reply.input.show">
+              <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent)">
                 <div class="form-group clearfix">
-                  <textarea name="" id="" class="form-control reply-textarea" required></textarea>
+                  <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<span class="tamato">{{ reply.input.nickName }}</span>：</span>
+                  <textarea ng-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
                   <button ng-disabled="!REPLY_COMMENT.$valid" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>
                 </div>
               </form>
@@ -77,10 +78,10 @@
     <div class="each-inner">
       <p>{{ 'pages.article.replyArticle' | translate }}:</p>
 
-      <form ng-submit="comment()" name="REPLY_ARTICLE" class="form">
+      <form ng-submit="commentSubmit(submitForm.commentContent)" name="REPLY_ARTICLE" class="form">
         <div class="form-group clearfix">
           <label for="add_content"></label>
-          <textarea ng-model="comment.content" class="form-control reply-textarea" id="add_content" cols="30" rows="10" name="content" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+          <textarea ng-model="submitForm.commentContent" class="form-control reply-textarea" id="add_content" cols="30" rows="10" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
           <button ng-disabled="REPLY_ARTICLE.$invalid" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
         </div>
       </form>
