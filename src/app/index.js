@@ -33,6 +33,15 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         }
       })
       /* account-tab */
+      .state('accountInfo', {
+        url: '/account/:user',
+        views: {
+          'account-tab': {
+            templateUrl: 'app/account/account-info.html',
+            controller: 'AccountInfoCtrl'
+          }
+        }
+      })
 
       /* fourth-tab */
       ;

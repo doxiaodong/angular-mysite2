@@ -1,6 +1,21 @@
 {
   "title": "Lovely House",
   "langSetting": "语言设置",
+  "alertDefaultTitle": "Alert",
+  "alertDefaultOk": "Ok",
+  "signModal": {
+    "signin": "Signin",
+    "register": "Register",
+    "username": "User Name",
+    "usernameFlag": "6 to 20, use only letter/number and '_'",
+    "password": "Password",
+    "passwordFlag": "6 to 20, use only letter/number and '_'",
+    "email": "Email",
+    "emailFlag": "please input email",
+    "nickName": "Nick name",
+    "nickNameFlag": "max length is 10(not need)",
+    "forget": "Forget Password"
+  },
   "navbar": {
     "index": "Home",
     "article": "Articles",
@@ -29,6 +44,16 @@
       "replyPlaceholder": "reply",
       "commentPlaceholder": "Write your opinions~",
       "comment": "Comment"
+    },
+    "account": {
+      "infoTitle": "Account Center",
+      "profile": "Profile",
+      "change": "Change",
+      "email": "Email",
+      "lastSignin": "Last Signin",
+      "notification": "Notification",
+      "replyWord1": "replied you in",
+      "replyWord2": ""
     }
   }
 }

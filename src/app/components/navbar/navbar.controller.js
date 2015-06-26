@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('NavbarCtrl', function($scope, $rootScope, $state, $timeout) {
+  .controller('NavbarCtrl', function($scope, $rootScope, $state, $timeout, xdAlert) {
 
     $scope.index = 0;
     var timeout;
@@ -12,6 +12,7 @@ angular.module('angularMysite2')
 
     $scope.showSign = function() {
       console.log("show signin modal");
+      $rootScope.$broadcast('signModal.show');
     };
 
     $scope.signOut = function() {

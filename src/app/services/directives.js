@@ -32,19 +32,35 @@ angular.module('angularMysite2')
       }
     };
   })
-  .directive('signModal', function() {
+  .directive('signModal', function(utils) {
     return {
       restrict: 'A',
       replace: true,
       templateUrl: 'app/templates/sign-modal.html',
       link: function (scope, element, attr) {
+        element.on('scroll', function(e) {
+          e.stopPropagation();
+        });
+
+        scope.usernamePattern = utils.usernamePattern;
+        scope.passwordPattern = utils.passwordPattern;
+        scope.showModal = false;
+        scope.signinModel = true;
+        scope.$on('signModal.show', function() {
+          scope.showModal = true;
+        });
+        // auto input
         scope.signin = {
-          username: '',
+          username: 'sssssssss',
           password: ''
         };
         scope.register = {
 
         };
+
+        scope.closeShowModal = function() {
+          scope.showModal = false;
+        }
       }
     };
   })
@@ -58,6 +74,31 @@ angular.module('angularMysite2')
         $rootScope.$on('languageChange', function() {
           setTitle.brocastTitle(attr.xdTitle);
         });
+      }
+    };
+  })
+  .directive('xdAlert', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl: 'app/templates/xd-alert.html',
+      link: function(scope, element, attr) {
+        scope.showAlert = false;
+        scope.opts = {};
+        scope.$on('alert.show', function(e, opts) {
+          scope.opts.title = opts.title === undefined ? attr.alertTitle : opts.title;
+          scope.opts.ok = opts.ok === undefined ? attr.alertOk : opts.ok;
+          scope.opts.content = opts.content;
+          scope.opts.callback = opts.callback;
+          scope.showAlert = true;
+        });
+
+        scope.closeAlert = function() {
+          scope.showAlert = false;
+          if (scope.opts.callback) {
+            scope.opts.callback();
+          }
+        }
       }
     };
   })
