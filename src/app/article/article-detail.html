@@ -50,10 +50,10 @@
               <img class="pic left" ng-src="{{ subReply.replyUser.pic }}" alt="">
               <div class="right">
                 <div class="word">
-                  <div class="user">
+                  <div>
                     <span class="a" ui-sref="accountInfo({user: subReply.replyUser.username})">{{ subReply.replyUser.nickName }}</span>
                     <span class="nomal-color">&nbsp;{{ 'pages.article.lowercaseReply' | translate }}&nbsp;</span>
-                    <span class="a" ui-sref="accountInfo({user: subReply.replyUser.username})">{{ subReply.replyObject.nickName }}</span>
+                    <span class="a" ui-sref="accountInfo({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</span>：
                   </div>
                   <div class="mes">{{ subReply.content }}</div>
                 </div>
