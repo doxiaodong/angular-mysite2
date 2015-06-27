@@ -1,22 +1,30 @@
 'use strict';
 
 angular.module('angularMysite2')
-	.controller('ArticleListCtrl', function($scope, $stateParams) {
-
-    $scope.articleList = {
-      category: $stateParams.category
-    };
+	.controller('ArticleListCtrl', function($scope, $stateParams, ArticleApi) {
 
     $scope.categories = [{
       key: 'all',
       name: '全部'
-    }, {
-      key: 'front',
-      name: '前端'
-    }, {
-      key: 'poyi',
-      name: '爱婆姨'
     }];
+
+    ArticleApi.getArticleCategories()
+      .success(function(data) {
+        if (+data.status === 1) {
+          angular.forEach(data.data.articleCategories, function(self) {
+            var category = {
+              key: self.url,
+              name: self.name
+            };
+            $scope.categories.push(category);
+          });
+        }
+      })
+    ;
+
+    $scope.articleList = {
+      category: $stateParams.category
+    };
 
     $scope.articles = [{
       title: '春天秋天',

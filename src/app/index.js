@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
+  .constant('HOST_URL', 'http://localhost:9999')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
@@ -61,7 +62,11 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   .config(function(localStorageServiceProvider) {
   	localStorageServiceProvider.setPrefix('xd');
   })
-  .run(function($rootScope, $window, $document, $translate, localStorageService) {
+  .run(function($rootScope, $window, $document, $translate, localStorageService, CommonApi) {
+    CommonApi.initHomePage()
+      .success(function(data, status, headers) {
+        console.log(data, headers());
+      });
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {
       $rootScope.title = title;
