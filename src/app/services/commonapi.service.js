@@ -10,11 +10,7 @@ angular.module('angularMysite2')
         url: HOST_URL + '/initHomePage/',
         headers: header
       }).success(function(data, status, headers) {
-        // data.data.isOldUser
-        if (+data.status === 1) {
-          $cookies.csrftoken = data.data.csrftoken;
-          window.csrf = data.data.csrftoken;
-        }
+        $cookies.csrftoken = data.data.csrftoken
       })
     }
   });

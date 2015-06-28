@@ -1,16 +1,20 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .service('ArticleApi', function($http, utils, HOST_URL) {
+  .service('ArticleApi', function($http, $cookies, utils, HOST_URL) {
     var header = {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-CSRFToken': $cookies.csrftoken
     };
 
-    this.getArticleCategories = function() {
+    this.getArticleCategories = function(obj) {
       return $http({
         method: 'POST',
         url: HOST_URL + '/article/getArticleCategory/',
-        headers: header
+        headers: header,
+        data: utils.param({
+          'csrfmiddlewaretoken': $cookies.csrftoken
+        })
       }).success(function(data) {
         // data.data.isOldUser
       })

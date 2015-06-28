@@ -1,30 +1,40 @@
 'use strict';
 
 angular.module('angularMysite2')
-	.controller('ArticleListCtrl', function($scope, $stateParams, ArticleApi) {
+	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi) {
 
-    $scope.categories = [{
-      key: 'all',
-      name: '全部'
-    }];
+    var categories;
+    //var categories = JSON.parse($window.sessionStorage.getItem('categories'));
+    if (!categories) {
+      ArticleApi.getArticleCategories()
+        .success(function(data) {
+          if (+data.status === 1) {
+            $scope.categories = [];
+            $scope.categories.push({
+              key: 'all',
+              name: '全部'
+            });
+            angular.forEach(data.data.article_categories, function(self) {
+              var fields = self.fields;
+              var category = {
+                key: fields.url,
+                name: fields.name
+              };
+              $scope.categories.push(category);
+            });
 
-    ArticleApi.getArticleCategories()
-      .success(function(data) {
-        if (+data.status === 1) {
-          angular.forEach(data.data.articleCategories, function(self) {
-            var category = {
-              key: self.url,
-              name: self.name
-            };
-            $scope.categories.push(category);
-          });
-        }
-      })
-    ;
+            $window.sessionStorage.setItem('categories', JSON.stringify($scope.categories));
+          }
+        })
+      ;
+    } else {
+      $scope.categories = categories;
+    }
 
     $scope.articleList = {
       category: $stateParams.category
     };
+    console.log($scope.articleList.category);
 
     $scope.articles = [{
       title: '春天秋天',
