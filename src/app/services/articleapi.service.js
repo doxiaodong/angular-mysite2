@@ -10,7 +10,7 @@ angular.module('angularMysite2')
     this.getArticleCategories = function(obj) {
       return $http({
         method: 'GET',
-        url: HOST_URL + '/api/article/categories/',
+        url: HOST_URL + '/article/categories/',
         headers: header
         //data: utils.param({
         //  'csrfmiddlewaretoken': $cookies.csrftoken

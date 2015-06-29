@@ -7,7 +7,7 @@ angular.module('angularMysite2')
     this.initHomePage = function() {
       return $http({
         method: 'GET',
-        url: HOST_URL + '/api/initHomePage/',
+        url: HOST_URL + '/initHomePage/',
         headers: header
       }).success(function(data, status, headers) {
         //$cookies.csrftoken = data.data.csrftoken

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
-  .constant('HOST_URL', 'http://localhost:9999')
+  .constant('HOST_URL', 'http://api.localhost:7997')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
