@@ -63,12 +63,17 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   	localStorageServiceProvider.setPrefix('xd');
   })
   .run(function($rootScope, $window, $document, $translate, localStorageService, CommonApi) {
+    if ($rootScope.isFirst === undefined) {
+      $rootScope.isFirst = true;
+    }
+
     CommonApi.initHomePage()
       .success(function(data, status, headers) {
         console.log(data, headers());
       });
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {
+      $rootScope.isFirst = false;
       $rootScope.title = title;
       $rootScope.$emit('pages.afterEnter');
     });

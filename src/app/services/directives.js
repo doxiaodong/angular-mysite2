@@ -68,9 +68,10 @@ angular.module('angularMysite2')
     return {
       restrict: 'A',
       link: function(scope, element, attr) {
+        var time = $rootScope.isFirst ? 500 : 20;
         $timeout(function() {
           setTitle.brocastTitle(attr.xdTitle);
-        }, 20);
+        }, time);
         $rootScope.$on('languageChange', function() {
           setTitle.brocastTitle(attr.xdTitle);
         });
