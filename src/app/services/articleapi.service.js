@@ -18,5 +18,15 @@ angular.module('angularMysite2')
       }).success(function(data) {
         // data.data.isOldUser
       })
-    }
+      ;
+    };
+
+    this.getArticleList = function(category, obj) {
+      return $http({
+        method: 'GET',
+        url: HOST_URL + '/article/articles/' + category,
+        headers: header
+      })
+      ;
+    };
   });

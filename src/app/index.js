@@ -59,7 +59,8 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   	$translateProvider.preferredLanguage('en_US');
   	$translateProvider.useLocalStorage();
   })
-  .config(function(localStorageServiceProvider) {
+  .config(function($httpProvider, localStorageServiceProvider) {
+    $httpProvider.defaults.withCredentials = true;
   	localStorageServiceProvider.setPrefix('xd');
   })
   .run(function($rootScope, $window, $document, $translate, localStorageService, CommonApi) {
