@@ -11,7 +11,7 @@ angular.module('angularMysite2')
         headers: header
       }).success(function(data, status, headers) {
         //$cookies.csrftoken = data.data.csrftoken
-        console.log($cookies)
+        //console.log($cookies)
       })
     }
   });

@@ -43,7 +43,8 @@
       "replyArticle": "发表评论",
       "replyPlaceholder": "回复",
       "commentPlaceholder": "来交流下吧～",
-      "comment": "发布"
+      "comment": "发布",
+      "none": "暂无文章"
     },
     "account": {
       "infoTitle": "账户中心",

@@ -25,7 +25,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         }
       })
       .state('article', {
-        url: '/article/:category/:id/',
+        url: '/article/:category/:url/',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-detail.html',
@@ -70,7 +70,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
 
     CommonApi.initHomePage()
       .success(function(data, status, headers) {
-        console.log(data, headers());
+        //console.log(data, headers());
       });
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {

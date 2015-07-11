@@ -43,7 +43,8 @@
       "replyArticle": "Comment",
       "replyPlaceholder": "reply",
       "commentPlaceholder": "Write your opinions~",
-      "comment": "Comment"
+      "comment": "Comment",
+      "none": "No articles"
     },
     "account": {
       "infoTitle": "Account Center",

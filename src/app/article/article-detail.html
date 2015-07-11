@@ -21,7 +21,7 @@
       <div class="changes">• {{ article.createTime }} • {{ article.category.name }}</div>
     </div>
     <div class="each-inner">
-      <div class="each-article">{{ article.content }}</div>
+      <div class="each-article" ng-bind-html="article.content"></div>
     </div>
   </div>
 

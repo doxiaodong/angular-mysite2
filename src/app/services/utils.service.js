@@ -12,9 +12,6 @@ angular.module('angularMysite2')
         }
 
         return str.join("&");
-      },
-      getCookie: function(key) {
-
       }
     };
   })

@@ -1,23 +1,26 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('ArticleDetailCtrl', function($scope, $stateParams) {
-    $scope.article = {
-      articleDetailTitle: '早上好！',
-      category: {
-        key: 'poyi',
-        name: '爱婆姨'
-      },
-      createTime: '2015-06-12',
-      content: '今天天气好晴蓝，啦啦啦啦啦'
-    };
+  .controller('ArticleDetailCtrl', function($scope, $window, $document, $stateParams, ArticleApi) {
+
+    ArticleApi.getArticleDetail($stateParams.url)
+      .success(function(data) {
+        $scope.article = {
+          articleDetailTitle: data.title,
+          category: {
+            key: data.category.url,
+            name: data.category.name
+          },
+          createTime: data.create_time,
+          content: data.content
+        };
+      })
+    ;
 
     $scope.submitForm = {
       replyContent: '',
       commentContent: ''
     };
-
-    $scope.articleReplies = 0;
 
     $scope.replySubmit = function(object, content) {
       console.log("1.type: reply", "2.object: " + object, "3.content: " + content);
@@ -35,111 +38,78 @@ angular.module('angularMysite2')
       reply.input.show = true;
     };
 
-    $scope.categories = [{
-      key: 'all',
-      name: '全部'
-    }, {
-      key: 'front',
-      name: '前端'
-    }, {
-      key: 'poyi',
-      name: '爱婆姨'
-    }];
+    var categories = JSON.parse($window.sessionStorage.getItem('categories'));
+    if (!categories) {
+      ArticleApi.getArticleCategories()
+        .success(function(data) {
+          $scope.categories = [];
+          $scope.categories.push({
+            key: 'all',
+            name: '全部'
+          });
+          angular.forEach(data.results, function(self) {
+            var category = {
+              key: self.url,
+              name: self.name
+            };
+            $scope.categories.push(category);
+          });
+          $window.sessionStorage.setItem('categories', JSON.stringify($scope.categories));
+        })
+      ;
+    } else {
+      $scope.categories = categories;
+    }
 
-    $scope.replies = [{
-      replyUser: {
-        pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-        nickName: '毒枭东',
-        username: 'duxiaodong'
-      },
-      input: {
-        show: false
-      },
-      content: '哇！发现新大陆了',
-      time: '2015-12-31',
-      index: 1,
-      subReplies: [{
-        replyUser: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '毒枭东',
-          username: 'duxiaodong'
-        },
-        replyObject: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '毒枭东',
-          username: 'duxiaodong'
-        },
-        content: 'haha！发现新大陆了',
-        time: '2015-12-10'
-      }]
-    }, {
-      replyUser: {
-        pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-        nickName: '毒枭东',
-        username: 'duxiaodong'
-      },
-      input: {
-        show: false
-      },
-      content: '哇！发现新大陆了',
-      time: '2015-12-31',
-      index: 2,
-      subReplies: [{
-        replyUser: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '杜小东',
-          username: 'dxd'
-        },
-        replyObject: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '毒枭东',
-          username: 'duxiaodong'
-        },
-        content: 'haha！发现新大陆了',
-        time: '2015-12-10'
-      }, {
-        replyUser: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '简小小',
-          username: 'jxx'
-        },
-        replyObject: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '毒枭东',
-          username: 'duxiaodong'
-        },
-        content: 'haha！发现新大陆了',
-        time: '2015-12-10'
-      }]
-    }, {
-      replyUser: {
-        pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-        nickName: '侯耀斌',
-        username: 'hyb'
-      },
-      input: {
-        show: false
-      },
-      content: '哇！wawawawawa',
-      time: '2015-12-31',
-      index: 3,
-      subReplies: [{
-        replyUser: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '毒枭东',
-          username: 'duxiaodong'
-        },
-        replyObject: {
-          pic: 'assets/images/web-app/touch-icon-iphone-retina.png',
-          nickName: '侯耀斌',
-          username: 'hyb'
-        },
-        content: 'haha！太蠢了',
-        time: '2015-11-10'
-      }]
-    }];
+    ArticleApi.getComments($stateParams.url)
+      .success(function(data) {
+        $scope.replies = [];
+        if (data.results) {
+          angular.forEach(data.results, function(self) {
+            var reply = {
+              replyUser: {
+                pic: self.reply_user.pic,
+                username: self.reply_user.username,
+                nickName: self.reply_user.nickname
+              },
+              input: {
+                show: false
+              },
+              content: self.content,
+              time: self.reply_time,
+              index: self.index
+            };
+            $scope.replies.push(reply);
+            ArticleApi.getSubComments(self.url)
+              .success(function(subData) {
+                if (subData.results) {
+                  reply.subReplies = [];
+                  angular.forEach(subData.results, function(subSelf) {
+                    reply.subReplies.push({
+                      replyUser: {
+                        pic: subSelf.reply_user.pic,
+                        username: subSelf.reply_user.username,
+                        nickName: subSelf.reply_user.nickname
+                      },
+                      replyObject: {
+                        pic: subSelf.reply_object.pic,
+                        username: subSelf.reply_object.username,
+                        nickName: subSelf.reply_object.nickname
+                      },
+                      content: subSelf.content,
+                      time: subSelf.reply_time
+                    });
+                  });
+                }
+              })
+            ;
+          });
+        }
+      })
+    ;
 
     // count articleReplies
+    $scope.articleReplies = 0;
     angular.forEach($scope.replies, function(self) {
       $scope.articleReplies += 1 + self.subReplies.length;
     });
