@@ -30,6 +30,15 @@ angular.module('angularMysite2')
       }
     };
 
+    $rootScope.$on('account.signin', function(e, data) {
+      $scope.user = {
+        nickName: data.nickname,
+        isSignin: function() {
+          return true;
+        }
+      };
+    });
+
 
     function changeViews() {
       if (timeout) {

@@ -32,7 +32,7 @@ angular.module('angularMysite2')
       }
     };
   })
-  .directive('signModal', function(utils) {
+  .directive('signModal', function($rootScope, localStorageService, utils, AccountApi) {
     return {
       restrict: 'A',
       replace: true,
@@ -49,18 +49,35 @@ angular.module('angularMysite2')
         scope.$on('signModal.show', function() {
           scope.showModal = true;
         });
+        var user = localStorageService.get('user');
+        if (user) {
+          scope.signin = user;
+        } else {
+          scope.signin = {};
+        }
         // auto input
-        scope.signin = {
-          username: 'sssssssss',
-          password: ''
-        };
         scope.register = {
 
         };
 
         scope.closeShowModal = function() {
           scope.showModal = false;
-        }
+        };
+
+        scope.signinSubmit = function() {
+          AccountApi.signin({
+            username: scope.signin.username,
+            password: scope.signin.password
+          })
+            .success(function(data) {
+              console.log(data);
+              if (data.status) {
+                $rootScope.$broadcast('account.signin', data.data);
+                scope.closeShowModal();
+              }
+            })
+          ;
+        };
       }
     };
   })

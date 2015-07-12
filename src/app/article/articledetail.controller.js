@@ -22,6 +22,8 @@ angular.module('angularMysite2')
       commentContent: ''
     };
 
+    $scope.articleReplies = 0;
+
     $scope.replySubmit = function(object, content) {
       console.log("1.type: reply", "2.object: " + object, "3.content: " + content);
     };
@@ -80,6 +82,7 @@ angular.module('angularMysite2')
               index: self.index
             };
             $scope.replies.push(reply);
+            $scope.articleReplies += 1;
             ArticleApi.getSubComments(self.url)
               .success(function(subData) {
                 if (subData.results) {
@@ -100,6 +103,7 @@ angular.module('angularMysite2')
                       time: subSelf.reply_time
                     });
                   });
+                  $scope.articleReplies += 1;
                 }
               })
             ;
@@ -107,11 +111,5 @@ angular.module('angularMysite2')
         }
       })
     ;
-
-    // count articleReplies
-    $scope.articleReplies = 0;
-    angular.forEach($scope.replies, function(self) {
-      $scope.articleReplies += 1 + self.subReplies.length;
-    });
 
   });
