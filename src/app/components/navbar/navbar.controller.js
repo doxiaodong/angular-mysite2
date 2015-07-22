@@ -30,6 +30,7 @@ angular.module('angularMysite2')
 
     $scope.user = {
       nickName: '',
+      username: '',
       isSignin: function() {
         return false;
       }
@@ -38,6 +39,7 @@ angular.module('angularMysite2')
     $rootScope.$on('get_user_info', function(e, data) {
       $scope.user = {
         nickName: data.nickname,
+        username: data.username,
         isSignin: function() {
           return true;
         }
@@ -47,6 +49,7 @@ angular.module('angularMysite2')
     $rootScope.$on('account.signout', function(e, data) {
       $scope.user = {
         nickName: '',
+        username: '',
         isSignin: function() {
           return false;
         }

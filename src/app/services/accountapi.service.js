@@ -2,16 +2,12 @@
 
 angular.module('angularMysite2')
   .service('AccountApi', function($rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
-    var header = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'X-CSRFToken': $cookies.csrftoken
-    };
 
     this.signin = function(obj) {
       return $http({
         method: 'POST',
         url: HOST_URL + '/account/signin/',
-        headers: header,
+        headers: utils.getHeader(),
         data: utils.param({
           'username': obj.username,
           'password': obj.password
@@ -30,7 +26,7 @@ angular.module('angularMysite2')
       return $http({
         method: 'POST',
         url: HOST_URL + '/account/register/',
-        headers: header,
+        headers: utils.getHeader(),
         data: utils.param({
           'username': obj.username,
           'password': obj.password,
@@ -50,7 +46,7 @@ angular.module('angularMysite2')
       return $http({
         method: 'POST',
         url: HOST_URL + '/account/signout/',
-        headers: header
+        headers: utils.getHeader()
       }).success(function(data) {
         if (+data.status === 1) {
           $rootScope.user = '';
@@ -58,6 +54,29 @@ angular.module('angularMysite2')
         }
       })
         ;
+    };
+
+    this.getUserInfo = function(obj) {
+      return $http({
+        method: 'POST',
+        url: HOST_URL + '/account/getUserInfo/',
+        headers: utils.getHeader(),
+        data: utils.param({
+          username: obj.username
+        })
+      }).success(function(data) {
+        if (+data.status === 1) {
+        }
+      })
+        ;
+    };
+
+    this.getAccountSubComments = function(obj) {
+      return $http({
+        method: 'GET',
+        url: HOST_URL + '/account/subcomments/' + obj.user + '/',
+        headers: utils.getHeader()
+      })
     };
 
   });

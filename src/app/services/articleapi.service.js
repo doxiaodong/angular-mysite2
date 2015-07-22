@@ -2,16 +2,12 @@
 
 angular.module('angularMysite2')
   .service('ArticleApi', function($http, $cookies, utils, HOST_URL) {
-    var header = {
-      'Content-Type': 'application/x-www-form-urlencoded'
-      //'X-CSRFToken': $cookies.csrftoken
-    };
 
     this.getArticleCategories = function(obj) {
       return $http({
         method: 'GET',
         url: HOST_URL + '/article/categories/',
-        headers: header
+        headers: utils.getHeader()
         //data: utils.param({
         //  'csrfmiddlewaretoken': $cookies.csrftoken
         //})
@@ -25,7 +21,7 @@ angular.module('angularMysite2')
       return $http({
         method: 'GET',
         url: HOST_URL + '/article/articles/' + category + '/',
-        headers: header
+        headers: utils.getHeader()
       })
       ;
     };
@@ -34,7 +30,7 @@ angular.module('angularMysite2')
       return $http({
         method: 'GET',
         url: HOST_URL + '/article/' + url + '/',
-        headers: header
+        headers: utils.getHeader()
       })
       ;
     };
@@ -43,7 +39,7 @@ angular.module('angularMysite2')
       return $http({
         method: 'GET',
         url: HOST_URL + '/comment/comments/' + article + '/',
-        headers: header
+        headers: utils.getHeader()
       })
       ;
     };
@@ -52,8 +48,17 @@ angular.module('angularMysite2')
       return $http({
         method: 'GET',
         url: HOST_URL + '/comment/subcomments/' + head + '/',
-        headers: header
+        headers: utils.getHeader()
       })
       ;
+    };
+
+    this.getAllComments = function(obj) {
+      return $http({
+        method: 'GET',
+        url: HOST_URL + '/comments/',
+        headers: utils.getHeader()
+      })
+        ;
     };
   });

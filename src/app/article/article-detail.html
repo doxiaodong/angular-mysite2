@@ -18,7 +18,7 @@
   <div class="page-block left">
     <div class="each-header">
       <span class="full-title big-size">{{ article.articleDetailTitle }}</span>
-      <div class="changes">• {{ article.createTime }} • {{ article.category.name }}</div>
+      <div class="changes">• {{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }} • {{ article.category.name }}</div>
     </div>
     <div class="each-inner">
       <div class="each-article" ng-bind-html="article.content"></div>
@@ -39,9 +39,9 @@
               <div class="mes">{{ reply.content }}</div>
             </div>
             <div class="message">
-              <span class="time">{{ reply.time }}</span>
+              <span class="time">{{ reply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
               <span class="pointer icon ion-reply a" ng-click="showReplyInput(reply, reply)">{{ 'pages.article.reply' | translate }}</span>
-              <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
+              <!--<span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>-->
               <span class="floor">{{ reply.index }}{{ 'pages.article.floor' | translate }}</span>
             </div>
           </div>
@@ -58,9 +58,9 @@
                   <div class="mes">{{ subReply.content }}</div>
                 </div>
                 <div class="message">
-                  <span class="time">{{ subReply.time }}</span>
+                  <span class="time">{{ subReply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
                   <span class="pointer icon ion-reply a" ng-click="showReplyInput(reply, subReply)">{{ 'pages.article.reply' | translate }}</span>
-                  <span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>
+                  <!--<span class="pointer icon ion-android-delete a">{{ 'pages.article.delete' | translate }}</span>-->
                 </div>
               </div>
             </li>

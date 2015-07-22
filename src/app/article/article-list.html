@@ -25,7 +25,7 @@
           <div class="title">
             <span class="a" ui-sref="article({category: article.category, url: article.url})">{{ article.title }}</span>
           </div>
-          <div class="time">{{ article.createTime }}</div>
+          <div class="time">{{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
         </li>
         <li class="article" ng-if="!articles.length">{{ 'pages.article.none' | translate }}</li>
       </ul>

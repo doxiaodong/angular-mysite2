@@ -32,7 +32,7 @@ angular.module('angularMysite2')
       }
     };
   })
-  .directive('signModal', function($rootScope, localStorageService, utils, AccountApi) {
+  .directive('signModal', function($rootScope, localStorageService, utils, AccountApi, xdAlert) {
     return {
       restrict: 'A',
       replace: true,
@@ -88,7 +88,7 @@ angular.module('angularMysite2')
             if (+data.status === 1) {
               scope.closeShowModal();
             } else {
-              $rootScope.$broadcast('alert.show', {content: data.data.error});
+              xdAlert.show(data.data.error);
             }
           })
         }

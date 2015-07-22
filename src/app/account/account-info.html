@@ -2,7 +2,7 @@
   <div class="page-block">
     <div class="each-header">
       <span class="big-size">{{ 'pages.account.profile' | translate }}</span>
-      <span ng-if="itsMe()" class="a pull-right" ui-sref="accountSetting">{{ 'pages.account.change' | translate }}</span>
+      <span ng-if="itsMe" class="a pull-right" ui-sref="accountSetting">{{ 'pages.account.change' | translate }}</span>
     </div>
     <div class="each-inner">
       <div class="head clearfix">
@@ -13,11 +13,11 @@
       </div>
       <div class="sex">{{ profile.sex.word }}</div>
       <div class="email line">{{ 'pages.account.email' | translate }}：<a href="mailto:{{ profile.email }}">{{ profile.email }}</a></div>
-      <div class="last-login line">{{ 'pages.account.lastSignin' | translate }}：{{ profile.lastSignin }}</div>
+      <div class="last-login line">{{ 'pages.account.lastSignin' | translate }}：{{ profile.lastSignin | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
     </div>
   </div>
 
-  <div class="page-block" ng-if="itsMe()">
+  <div class="page-block" ng-if="itsMe">
     <div class="each-header">
       <span class="big-size">{{ 'pages.account.notification' | translate }}</span>
     </div>
@@ -30,13 +30,39 @@
               <div>
                 <span class="a" ui-sref="accountInfo({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</span>
                 <span class="normal-color">{{ 'pages.account.replyWord1' | translate }}</span>
-                <span class="a" ui-sref="article({category: 'all', id: 1})">{{ reply.articleDetailTitle }}</span>
+                <span class="a" ui-sref="article({category: reply.article.category.url, url: reply.article.url})">{{ reply.article.title }}</span>
                 {{ 'pages.account.replyWord2' | translate }}：
               </div>
               <div class="mes">{{ reply.content }}</div>
             </div>
             <div class="message">
-              <span class="time">{{ reply.time }}</span>
+              <span class="time">{{ reply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-block" ng-if="itsMe">
+    <div class="each-header">
+      <span class="big-size">{{ 'pages.account.notificationArticle' | translate }}</span>
+    </div>
+    <div class="each-inner">
+      <ul class="replies">
+        <li class="each-reply" ng-repeat="reply in repliesOfArticle">
+          <img class="pic left" ng-src="{{ reply.replyUser.pic }}" alt="">
+          <div class="right">
+            <div class="word">
+              <div>
+                <span class="a" ui-sref="accountInfo({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</span>
+                <span class="normal-color">{{ 'pages.account.replyOfArticleWord' | translate }}</span>
+                <span class="a" ui-sref="article({category: reply.article.category.url, url: reply.article.url})">{{ reply.article.title }}</span>：
+              </div>
+              <div class="mes">{{ reply.content }}</div>
+            </div>
+            <div class="message">
+              <span class="time">{{ reply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
             </div>
           </div>
         </li>

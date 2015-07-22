@@ -53,8 +53,10 @@
       "email": "邮箱",
       "lastSignin": "上次登录",
       "notification": "消息通知",
+      "notificationArticle": "文章评论",
       "replyWord1": "在",
-      "replyWord2": "回复你"
+      "replyWord2": "回复你",
+      "replyOfArticleWord": "回复了你的文章"
     }
   }
 }
