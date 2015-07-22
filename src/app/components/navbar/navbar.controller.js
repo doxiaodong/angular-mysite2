@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('NavbarCtrl', function($scope, $rootScope, $state, $timeout, xdAlert) {
+  .controller('NavbarCtrl', function($scope, $rootScope, $state, $timeout, xdAlert, AccountApi) {
 
     $scope.index = 0;
     var timeout;
@@ -17,6 +17,11 @@ angular.module('angularMysite2')
 
     $scope.signOut = function() {
       console.log("signout");
+      AccountApi.signout()
+        .success(function(data) {
+          console.log(data);
+        })
+      ;
     };
 
     $scope.selectIndex = function(index) {
@@ -24,17 +29,26 @@ angular.module('angularMysite2')
     };
 
     $scope.user = {
-      nickName: '毒枭东',
+      nickName: '',
       isSignin: function() {
         return false;
       }
     };
 
-    $rootScope.$on('account.signin', function(e, data) {
+    $rootScope.$on('get_user_info', function(e, data) {
       $scope.user = {
         nickName: data.nickname,
         isSignin: function() {
           return true;
+        }
+      };
+    });
+
+    $rootScope.$on('account.signout', function(e, data) {
+      $scope.user = {
+        nickName: '',
+        isSignin: function() {
+          return false;
         }
       };
     });

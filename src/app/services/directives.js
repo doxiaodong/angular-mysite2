@@ -71,13 +71,27 @@ angular.module('angularMysite2')
           })
             .success(function(data) {
               console.log(data);
-              if (data.status) {
-                $rootScope.$broadcast('account.signin', data.data);
+              if (+data.status === 1) {
                 scope.closeShowModal();
               }
             })
           ;
         };
+
+        scope.registerSubmit = function() {
+          AccountApi.register({
+            username: scope.register.username,
+            password: scope.register.password,
+            nickname: scope.register.nickname,
+            email: scope.register.email
+          }).success(function(data) {
+            if (+data.status === 1) {
+              scope.closeShowModal();
+            } else {
+              $rootScope.$broadcast('alert.show', {content: data.data.error});
+            }
+          })
+        }
       }
     };
   })

@@ -107,11 +107,17 @@ header.header {
         height: 100%;
         width: 100%;
         position: relative;
+        & > li {
+          float: left;
+          overflow: hidden;
+          width: 25%;
+          height: 100%;
+        }
         .each-nav {
           float: left;
           cursor: pointer;
           color: darken(rgb(255, 255, 255), 10%);
-          width: 25%;
+          width: 100%;
           height: 100%;
           line-height: @header_height;
           text-align: center;
