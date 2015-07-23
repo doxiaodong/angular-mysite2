@@ -56,7 +56,16 @@
       "notificationArticle": "Articles' Comments",
       "replyWord1": "replied you in",
       "replyWord2": "",
-      "replyOfArticleWord": "replied your article"
+      "replyOfArticleWord": "replied your article",
+      "setting": "Setting",
+      "changeInfo": "Change Profile",
+      "username": "Username",
+      "nickname": "Nickname",
+      "sex": "Sex",
+      "male": "Male",
+      "female": "Female",
+      "pic": "Picture",
+      "save": "Save"
     }
   }
 }

@@ -38,6 +38,8 @@ angular.module('angularMysite2')
       replace: true,
       templateUrl: 'app/templates/sign-modal.html',
       link: function (scope, element, attr) {
+
+        scope.requesting = false;
         element.on('scroll', function(e) {
           e.stopPropagation();
         });
@@ -65,30 +67,35 @@ angular.module('angularMysite2')
         };
 
         scope.signinSubmit = function() {
+          scope.requesting = true;
           AccountApi.signin({
             username: scope.signin.username,
             password: scope.signin.password
           })
             .success(function(data) {
-              console.log(data);
+              scope.requesting = false;
               if (+data.status === 1) {
                 scope.closeShowModal();
+              } else {
+                xdAlert.show(data.msg);
               }
             })
           ;
         };
 
         scope.registerSubmit = function() {
+          scope.requesting = true;
           AccountApi.register({
             username: scope.register.username,
             password: scope.register.password,
             nickname: scope.register.nickname,
             email: scope.register.email
           }).success(function(data) {
+            scope.requesting = false;
             if (+data.status === 1) {
               scope.closeShowModal();
             } else {
-              xdAlert.show(data.data.error);
+              xdAlert.show(data.msg);
             }
           })
         }
@@ -131,6 +138,17 @@ angular.module('angularMysite2')
             scope.opts.callback();
           }
         }
+      }
+    };
+  })
+  .directive('customOnChange', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      link: function (scope, element, attrs) {
+        var onChangeHandler = scope.$eval(attrs.customOnChange);
+        console.log(scope, element)
+        element.bind('change', onChangeHandler);
       }
     };
   })

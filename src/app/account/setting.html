@@ -1,0 +1,42 @@
+<div class="pages setting" xd-title="{{ 'pages.account.setting' | translate }}">
+  <div class="page-block">
+    <div class="each-header">
+      <span class="big-size">{{ 'pages.account.changeInfo' | translate }}</span>
+    </div>
+    <div class="each-inner">
+      <form id="ACCOUNT_SETTING" class="form" name="ACCOUNT_SETTING" ng-submit="submit()">
+        <article class="xd-article">
+          <div class="form-group">
+            <label class="form-label" for="setting_username">{{ 'pages.account.username' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.username.$dirty && ACCOUNT_SETTING.username.$invalid">*{{ 'signModal.usernameFlag' | translate }}</span></label>
+            <input class="form-control" ng-model="setting.username" id="setting_username" name="username" ng-pattern="usernamePattern" type="text" placeholder="{{ 'pages.account.username' | translate }}" required>
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.username.$valid" class="icon ion-checkmark active"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="setting_email">{{ 'pages.account.email' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.email.$dirty && ACCOUNT_SETTING.email.$invalid">*{{ 'signModal.emailFlag' | translate }}</span></label>
+            <input class="form-control" ng-model="setting.email" id="setting_email" name="email" type="email" placeholder="{{ 'pages.account.email' | translate }}" required>
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.email.$valid" class="icon ion-checkmark active"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="setting_nickname">{{ 'pages.account.nickname' | translate }}：</label>
+            <input class="form-control" ng-model="setting.nickname" id="setting_nickname" name="nickname" type="text" placeholder="{{ 'pages.account.nickname' | translate }}">
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.nickname.$valid" class="icon ion-checkmark active"></span>
+          </div>
+          <div class="form-group" id="setting_sex">
+            <label class="form-label" for="setting_sex">{{ 'pages.account.sex' | translate }}：</label>
+            <input id="setting_sex_0" ng-model="setting.sex.type" ng-checked="setting.sex.type == 0" name="sex" type="radio" value="0">{{ 'pages.account.male' | translate }}
+            <input id="setting_sex_1" ng-model="setting.sex.type" ng-checked="setting.sex.type == 1" name="sex" type="radio" value="1">{{ 'pages.account.female' | translate }}
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="setting_pic">{{ 'pages.account.pic' | translate }}：</label>
+            <label class="head-pic text-left" for="setting_pic"><img id="change_pic" ng-src="{{ setting.pic }}" alt=""></label>
+            <input class="hide" ng-click="ACCOUNT_SETTING.$dirty = true" custom-on-change="changePic" id="setting_pic" name="pic" type="file">
+          </div>
+          <div class="form-group">
+            <label class="form-label width-0"></label>
+            <button ng-disabled="!ACCOUNT_SETTING.$dirty || ACCOUNT_SETTING.$invalid || requesting" class="setting-button main btn" type="submit">{{ 'pages.account.save' | translate }}</button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</div>

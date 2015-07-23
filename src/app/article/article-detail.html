@@ -70,7 +70,7 @@
                 <div class="form-group clearfix">
                   <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<span class="a" ui-sref="accountInfo({user: reply.input.object})">{{ reply.input.nickName }}</span>：</span>
                   <textarea ng-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
-                  <button ng-disabled="!REPLY_COMMENT.$valid" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>
+                  <button ng-disabled="!REPLY_COMMENT.$valid || requesting" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>
                 </div>
               </form>
             </li>
@@ -86,7 +86,7 @@
         <div class="form-group clearfix">
           <label for="add_content"></label>
           <textarea ng-model="submitForm.commentContent" class="form-control reply-textarea" id="add_content" cols="30" rows="10" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
-          <button ng-disabled="REPLY_ARTICLE.$invalid" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
+          <button ng-disabled="REPLY_ARTICLE.$invalid || requesting" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
         </div>
       </form>
     </div>

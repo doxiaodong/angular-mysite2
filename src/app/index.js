@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
-  .constant('HOST_URL', 'http://api.local.darlin.me')
+  .constant('HOST_URL', 'http://api.darlin.me')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
@@ -43,8 +43,26 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
           }
         }
       })
+      .state('accountSetting', {
+        url: '/account/setting/',
+        views: {
+          'account-tab': {
+            templateUrl: 'app/account/setting.html',
+            controller: 'AccountSettingCtrl'
+          }
+        }
+      })
 
       /* fourth-tab */
+      .state('fourthIndex', {
+        url: '/fourth/index/',
+        views: {
+          'account-tab': {
+            templateUrl: 'app/fourth/fourth.html',
+            controller: 'FourthIndexCtrl'
+          }
+        }
+      })
       ;
 
     $urlRouterProvider.otherwise('/');

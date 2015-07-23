@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, ArticleApi, CommentApi, HOST_URL) {
+  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, ArticleApi, CommentApi, HOST_URL, xdAlert) {
 
+    $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {
         $scope.article = {
@@ -22,11 +23,13 @@ angular.module('angularMysite2')
     $scope.articleReplies = 0;
 
     $scope.replySubmit = function(object, content, comment, index) {
+      $scope.requesting = true;
       CommentApi.addSubReply({
         comment: comment,
         content: content,
         reply_object: object
       }).success(function(data) {
+        $scope.requesting = false;
         if (+data.status === 1) {
           //updateComments();
           clearSubmitForm();
@@ -35,16 +38,20 @@ angular.module('angularMysite2')
           sub.replyUser.pic = HOST_URL + '/media/' + sub.replyUser.pic;
           $scope.replies[index-1].subReplies.push(sub);
           $scope.articleReplies += 1;
+        } else {
+          xdAlert.show(data.msg);
         }
       });
       console.log("1.type: reply", "2.object: " + object, "3.content: " + content, "4.comment: " + comment);
     };
     $scope.commentSubmit = function(content) {
+      $scope.requesting = true;
       var article = $stateParams.url;
       CommentApi.addArticleReply({
         article: article,
         content: content
       }).success(function(data) {
+        $scope.requesting = false;
         if (+data.status === 1) {
           //updateComments();
           clearSubmitForm();
@@ -56,6 +63,8 @@ angular.module('angularMysite2')
           reply.subReplies = [];
           $scope.replies.push(reply);
           $scope.articleReplies += 1;
+        } else {
+          xdAlert.show(data.msg);
         }
       });
       console.log("1.type: comment", "2.content: " + content, "3.article: " + article);

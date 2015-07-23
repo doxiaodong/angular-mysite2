@@ -79,4 +79,16 @@ angular.module('angularMysite2')
       })
     };
 
+    this.changeProfile = function(obj) {
+      return $http({
+        method: 'POST',
+        url: HOST_URL + '/account/setting/',
+        headers: {
+          'Content-Type': undefined,
+          'X-CSRFToken': $cookies.csrftoken
+        },
+        data: obj.data
+      })
+    };
+
   });

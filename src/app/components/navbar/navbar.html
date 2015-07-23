@@ -21,7 +21,7 @@
           <span ng-show="user.isSignin()" class="each-nav account a" ui-sref="accountInfo({user: user.username})" ng-class="{ 'active': index===2 }" ng-click="selectIndex(2)">{{ 'navbar.account' | translate }}</span>
           <span ng-show="!user.isSignin()" class="each-nav sign a" ng-click="showSign()">{{ 'navbar.account' | translate }}</span>
         </li>
-        <li><span class="each-nav a" target="_blank" ng-class="{ 'active': index===3 }" ng-click="selectIndex(3)">{{ 'navbar.fourth' | translate }}</span></li>
+        <li><span class="each-nav a" ui-sref="fourthIndex" ng-class="{ 'active': index===3 }" ng-click="selectIndex(3)">{{ 'navbar.fourth' | translate }}</span></li>
       </ul>
     </div>
   </nav>
