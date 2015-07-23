@@ -66,7 +66,7 @@
             </li>
 
             <li class="reply-floor show" ng-show="reply.input.show">
-              <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent)">
+              <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent, reply.url, reply.index)">
                 <div class="form-group clearfix">
                   <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<span class="a" ui-sref="accountInfo({user: reply.input.object})">{{ reply.input.nickName }}</span>：</span>
                   <textarea ng-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>

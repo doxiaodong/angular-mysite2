@@ -1,0 +1,6 @@
+{
+  "src":          "/Users/duxiaodong/Documents/django/angular-mysite2/dist",
+  "dest":         "qiniu:access_key=RR8xxStViBpzNJ4pQjD1sBZH3JsWN-ou-LR1D_iT&secret_key=9oxjA6WIOGBRqUYnyVgrGzp4kEWbTzQ-lcW9Ear7&bucket=darlinme&key_prefix=&threshold=1048576",
+  "deletable":    0,
+  "debug_level":  1
+}

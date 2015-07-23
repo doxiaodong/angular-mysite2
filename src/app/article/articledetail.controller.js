@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('ArticleDetailCtrl', function($scope, $window, $document, $stateParams, ArticleApi) {
+  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, ArticleApi, CommentApi, HOST_URL) {
 
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {
@@ -17,18 +17,48 @@ angular.module('angularMysite2')
       })
     ;
 
-    $scope.submitForm = {
-      replyContent: '',
-      commentContent: ''
-    };
+    clearSubmitForm();
 
     $scope.articleReplies = 0;
 
-    $scope.replySubmit = function(object, content) {
-      console.log("1.type: reply", "2.object: " + object, "3.content: " + content);
+    $scope.replySubmit = function(object, content, comment, index) {
+      CommentApi.addSubReply({
+        comment: comment,
+        content: content,
+        reply_object: object
+      }).success(function(data) {
+        if (+data.status === 1) {
+          //updateComments();
+          clearSubmitForm();
+          var sub = data.data.subComment;
+          sub.replyObject.pic = HOST_URL + '/media/' + sub.replyObject.pic;
+          sub.replyUser.pic = HOST_URL + '/media/' + sub.replyUser.pic;
+          $scope.replies[index-1].subReplies.push(sub);
+          $scope.articleReplies += 1;
+        }
+      });
+      console.log("1.type: reply", "2.object: " + object, "3.content: " + content, "4.comment: " + comment);
     };
     $scope.commentSubmit = function(content) {
-      console.log("1.type: comment", "2.content: " + content);
+      var article = $stateParams.url;
+      CommentApi.addArticleReply({
+        article: article,
+        content: content
+      }).success(function(data) {
+        if (+data.status === 1) {
+          //updateComments();
+          clearSubmitForm();
+          var n = $scope.replies.length;
+          var reply = data.data.comment;
+          reply.index = $scope.replies[n-1].index + 1;
+          reply.input = {show: false};
+          reply.replyUser.pic = HOST_URL + '/media/' + reply.replyUser.pic;
+          reply.subReplies = [];
+          $scope.replies.push(reply);
+          $scope.articleReplies += 1;
+        }
+      });
+      console.log("1.type: comment", "2.content: " + content, "3.article: " + article);
     };
 
     $scope.showReplyInput = function(reply, subReply) {
@@ -63,53 +93,65 @@ angular.module('angularMysite2')
       $scope.categories = categories;
     }
 
-    ArticleApi.getComments($stateParams.url)
-      .success(function(data) {
-        $scope.replies = [];
-        if (data.results) {
-          angular.forEach(data.results, function(self) {
-            var reply = {
-              replyUser: {
-                pic: self.reply_user.pic,
-                username: self.reply_user.username,
-                nickName: self.reply_user.nickname
-              },
-              input: {
-                show: false
-              },
-              content: self.content,
-              time: self.reply_time,
-              index: self.index
-            };
-            $scope.replies.push(reply);
-            $scope.articleReplies += 1;
-            ArticleApi.getSubComments(self.url)
-              .success(function(subData) {
-                if (subData.results) {
-                  reply.subReplies = [];
-                  angular.forEach(subData.results, function(subSelf) {
-                    reply.subReplies.push({
-                      replyUser: {
-                        pic: subSelf.reply_user.pic,
-                        username: subSelf.reply_user.username,
-                        nickName: subSelf.reply_user.nickname
-                      },
-                      replyObject: {
-                        pic: subSelf.reply_object.pic,
-                        username: subSelf.reply_object.username,
-                        nickName: subSelf.reply_object.nickname
-                      },
-                      content: subSelf.content,
-                      time: subSelf.reply_time
-                    });
-                  });
-                  $scope.articleReplies += 1;
-                }
-              })
-            ;
-          });
-        }
-      })
-    ;
+    updateComments();
 
+    function updateComments() {
+      ArticleApi.getComments($stateParams.url)
+        .success(function(data) {
+          $scope.replies = [];
+          if (data.results) {
+            angular.forEach(data.results, function(self) {
+              var reply = {
+                replyUser: {
+                  pic: self.reply_user.pic,
+                  username: self.reply_user.username,
+                  nickName: self.reply_user.nickname
+                },
+                input: {
+                  show: false
+                },
+                content: self.content,
+                time: self.reply_time,
+                index: self.index,
+                url: self.url
+              };
+              $scope.replies.push(reply);
+              $scope.articleReplies += 1;
+              ArticleApi.getSubComments(self.url)
+                .success(function(subData) {
+                  reply.subReplies = [];
+                  if (subData.results) {
+                    angular.forEach(subData.results, function(subSelf) {
+                      reply.subReplies.push({
+                        replyUser: {
+                          pic: subSelf.reply_user.pic,
+                          username: subSelf.reply_user.username,
+                          nickName: subSelf.reply_user.nickname
+                        },
+                        replyObject: {
+                          pic: subSelf.reply_object.pic,
+                          username: subSelf.reply_object.username,
+                          nickName: subSelf.reply_object.nickname
+                        },
+                        content: subSelf.content,
+                        time: subSelf.reply_time
+                      });
+                    });
+                    $scope.articleReplies += 1;
+                  }
+                })
+              ;
+            });
+          }
+        })
+      ;
+    }
+
+
+    function clearSubmitForm() {
+      $scope.submitForm = {
+        replyContent: '',
+        commentContent: ''
+      };
+    }
   });
