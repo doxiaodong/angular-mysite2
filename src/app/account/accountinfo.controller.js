@@ -6,6 +6,10 @@ angular.module('angularMysite2')
     $scope.replies = [];
     $scope.repliesOfArticle = [];
 
+    $rootScope.$on('account.signout', function() {
+      $scope.itsMe = false;
+    });
+
     AccountApi.getUserInfo({
       username: $stateParams.user
     })
@@ -24,13 +28,13 @@ angular.module('angularMysite2')
       $scope.itsMe = utils.itsMe($rootScope.user.username, $stateParams.user);
       getReplies($rootScope.user.username);
       getRepliesOfArticle($rootScope.user);
-    } else {
-      $rootScope.$on('get_user_info', function(e, data) {
-        $scope.itsMe = utils.itsMe(data.username, $stateParams.user);
-        getReplies(data.username);
-        getRepliesOfArticle(data);
-      });
     }
+    $rootScope.$on('get_user_info', function(e, data) {
+      $scope.itsMe = utils.itsMe(data.username, $stateParams.user);
+      getReplies(data.username);
+      getRepliesOfArticle(data);
+    });
+
 
     function getRepliesOfArticle(user) {
       if (+user.id === 1) {
@@ -61,7 +65,7 @@ angular.module('angularMysite2')
           user: username
         })
           .success(function(data) {
-            console.log(data);
+            //console.log(data);
             if (data.results.length !== 0) {
               angular.forEach(data.results, function(self) {
                 var reply = {

@@ -147,7 +147,7 @@ angular.module('angularMysite2')
       replace: true,
       link: function (scope, element, attrs) {
         var onChangeHandler = scope.$eval(attrs.customOnChange);
-        console.log(scope, element)
+        //console.log(scope, element)
         element.bind('change', onChangeHandler);
       }
     };

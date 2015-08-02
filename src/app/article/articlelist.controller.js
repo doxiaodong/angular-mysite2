@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi, utils) {
-
+	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi) {
     var categories = JSON.parse($window.sessionStorage.getItem('categories'));
     if (!categories) {
       ArticleApi.getArticleCategories()

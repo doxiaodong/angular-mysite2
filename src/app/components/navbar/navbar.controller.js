@@ -11,15 +11,15 @@ angular.module('angularMysite2')
     });
 
     $scope.showSign = function() {
-      console.log("show signin modal");
+      //console.log("show signin modal");
       $rootScope.$broadcast('signModal.show');
     };
 
     $scope.signOut = function() {
-      console.log("signout");
+      //console.log("signout");
       AccountApi.signout()
         .success(function(data) {
-          console.log(data);
+          //console.log(data);
         })
       ;
     };

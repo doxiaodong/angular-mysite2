@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('AccountSettingCtrl', function($scope, $rootScope, $window, utils, AccountApi, HOST_URL, xdAlert) {
+  .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, HOST_URL, xdAlert) {
     $scope.requesting = false;
     $scope.dirty = false;
     $scope.usernamePattern = utils.usernamePattern;
@@ -20,6 +20,10 @@ angular.module('angularMysite2')
         getUser(data);
       });
     }
+
+    $rootScope.$on('account.signout', function() {
+      $state.go('home');
+    });
 
     $scope.submit = function() {
       var form = document.forms.namedItem('ACCOUNT_SETTING');

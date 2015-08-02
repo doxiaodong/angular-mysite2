@@ -2,7 +2,6 @@
 
 angular.module('angularMysite2')
   .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, ArticleApi, CommentApi, HOST_URL, xdAlert) {
-
     $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {
@@ -42,7 +41,7 @@ angular.module('angularMysite2')
           xdAlert.show(data.msg);
         }
       });
-      console.log("1.type: reply", "2.object: " + object, "3.content: " + content, "4.comment: " + comment);
+      //console.log("1.type: reply", "2.object: " + object, "3.content: " + content, "4.comment: " + comment);
     };
     $scope.commentSubmit = function(content) {
       $scope.requesting = true;
@@ -57,7 +56,12 @@ angular.module('angularMysite2')
           clearSubmitForm();
           var n = $scope.replies.length;
           var reply = data.data.comment;
-          reply.index = $scope.replies[n-1].index + 1;
+          if ($scope.replies[n-1]) {
+            reply.index = $scope.replies[n-1].index + 1;
+          } else {
+            reply.index = 1;
+          }
+
           reply.input = {show: false};
           reply.replyUser.pic = HOST_URL + '/media/' + reply.replyUser.pic;
           reply.subReplies = [];
@@ -67,7 +71,7 @@ angular.module('angularMysite2')
           xdAlert.show(data.msg);
         }
       });
-      console.log("1.type: comment", "2.content: " + content, "3.article: " + article);
+      //console.log("1.type: comment", "2.content: " + content, "3.article: " + article);
     };
 
     $scope.showReplyInput = function(reply, subReply) {
