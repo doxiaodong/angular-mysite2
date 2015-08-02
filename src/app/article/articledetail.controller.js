@@ -14,6 +14,7 @@ angular.module('angularMysite2')
           createTime: data.create_time,
           content: data.content
         };
+        $scope.$emit('title.get', data.title);
       })
     ;
 
