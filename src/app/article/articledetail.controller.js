@@ -133,7 +133,7 @@ angular.module('angularMysite2')
               ArticleApi.getSubComments(self.url)
                 .success(function(subData) {
                   reply.subReplies = [];
-                  if (subData.results) {
+                  if (subData.results.length !== 0) {
                     angular.forEach(subData.results, function(subSelf) {
                       reply.subReplies.push({
                         replyUser: {
@@ -149,8 +149,8 @@ angular.module('angularMysite2')
                         content: subSelf.content,
                         time: subSelf.reply_time
                       });
+                      $scope.articleReplies += 1;
                     });
-                    $scope.articleReplies += 1;
                   }
                 })
               ;
