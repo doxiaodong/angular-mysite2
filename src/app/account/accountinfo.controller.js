@@ -30,6 +30,8 @@ angular.module('angularMysite2')
       getRepliesOfArticle($rootScope.user);
     }
     $rootScope.$on('get_user_info', function(e, data) {
+      $scope.replies = [];
+      $scope.repliesOfArticle = [];
       $scope.itsMe = utils.itsMe(data.username, $stateParams.user);
       getReplies(data.username);
       getRepliesOfArticle(data);
