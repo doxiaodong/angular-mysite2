@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <base href="/">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -29,7 +30,7 @@
 
     <div ng-include="'app/components/navbar/navbar.html'"></div>
 
-    <article class="container">
+    <article class="container ui-view-container">
         <div ui-view="home-tab"></div>
         <div ui-view="article-tab"></div>
         <div ui-view="account-tab"></div>

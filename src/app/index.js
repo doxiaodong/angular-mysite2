@@ -2,7 +2,7 @@
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
   .constant('HOST_URL', 'http://api.darlin.me')
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
       .state('home', {
@@ -66,6 +66,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
       ;
 
     $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode(true)
   })
   .config(function($translateProvider) {
   	$translateProvider.useSanitizeValueStrategy('escaped');
