@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
-  .constant('HOST_URL', 'http://api.darlin.me')
+  .constant('HOST_URL', 'https://www.darlin.me')
+  .constant('STATIC_URL', 'https://dn-darlinme.qbox.me/')
   .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
@@ -72,7 +73,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
   	$translateProvider.useSanitizeValueStrategy('escaped');
 
   	$translateProvider.useStaticFilesLoader({
-	    prefix: 'app/../languages/',
+	    prefix: 'languages/',
 	    suffix: '.json'
 	  });
   	$translateProvider.preferredLanguage('en_US');

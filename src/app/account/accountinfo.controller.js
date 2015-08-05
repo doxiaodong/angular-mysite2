@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .controller('AccountInfoCtrl', function($scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, HOST_URL) {
+  .controller('AccountInfoCtrl', function($window, $scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, HOST_URL) {
     $scope.itsMe = false;
     $scope.replies = [];
     $scope.repliesOfArticle = [];
@@ -24,10 +24,10 @@ angular.module('angularMysite2')
       })
     ;
 
-    if ($rootScope.user) {
-      $scope.itsMe = utils.itsMe($rootScope.user.username, $stateParams.user);
-      getReplies($rootScope.user.username);
-      getRepliesOfArticle($rootScope.user);
+    if ($window.user) {
+      $scope.itsMe = utils.itsMe($window.user.username, $stateParams.user);
+      getReplies($window.user.username);
+      getRepliesOfArticle($window.user);
     }
     $rootScope.$on('get_user_info', function(e, data) {
       $scope.replies = [];

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularMysite2')
-  .service('AccountApi', function($rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
+  .service('AccountApi', function($window, $rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
 
     this.signin = function(obj) {
       return $http({
@@ -14,7 +14,7 @@ angular.module('angularMysite2')
         })
       }).success(function(data) {
         if (+data.status === 1) {
-          $rootScope.user = data.data.user;
+          $window.user = data.data.user;
           $rootScope.$broadcast('get_user_info', data.data.user);
           localStorageService.add('user', {username: obj.username, password: obj.password});
         }
@@ -35,7 +35,7 @@ angular.module('angularMysite2')
         })
       }).success(function(data) {
         if (+data.status === 1) {
-          $rootScope.user = data.data.user;
+          $window.user = data.data.user;
           $rootScope.$broadcast('get_user_info', data.data.user);
           localStorageService.add('user', {username: obj.username, password: obj.password});
         }
@@ -49,7 +49,7 @@ angular.module('angularMysite2')
         headers: utils.getHeader()
       }).success(function(data) {
         if (+data.status === 1) {
-          $rootScope.user = '';
+          $window.user = '';
           $rootScope.$broadcast('account.signout');
         }
       })

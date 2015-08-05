@@ -12,14 +12,14 @@ angular.module('angularMysite2')
       $scope.dirty = true;
       $scope.$apply();
     };
-
-    if ($rootScope.user) {
-      getUser($rootScope.user);
-    } else {
-      $rootScope.$on('get_user_info', function (e, data) {
-        getUser(data);
-      });
+    if ($window.user) {
+      //console.log($window.user, 2)
+      getUser($window.user);
     }
+
+    $rootScope.$on('get_user_info', function (e, data) {
+      getUser(data);
+    });
 
     $rootScope.$on('account.signout', function() {
       $state.go('home');

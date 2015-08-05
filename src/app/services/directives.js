@@ -155,4 +155,18 @@ angular.module('angularMysite2')
       }
     };
   })
+  .directive('xdFooter', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl: 'app/components/footer/footer.html'
+    }
+  })
+  .directive('xdNavbar', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl: 'app/components/navbar/navbar.html'
+    }
+  })
 ;
