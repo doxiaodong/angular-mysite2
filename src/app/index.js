@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
-  .constant('HOST_URL', 'https://www.darlin.me')
-  .constant('STATIC_URL', 'https://dn-darlinme.qbox.me/')
+  .constant('HOST_URL', '//api.darlin.me')
+  .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
   .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */

@@ -29,6 +29,12 @@
         </li>
         <li class="article" ng-if="!articles.length">{{ 'pages.article.none' | translate }}</li>
       </ul>
+      <div class="text-center">
+        <ul class="pagination">
+          <li ng-hide="!pagePrev" ng-click="prevPage()"><span class="a">{{ 'pagination.prev' | translate }}</span></li>
+          <li ng-hide="!pageNext" ng-click="nextPage()"><span class="a">{{ 'pagination.next' | translate }}</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

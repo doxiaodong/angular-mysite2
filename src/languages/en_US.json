@@ -3,6 +3,10 @@
   "langSetting": "语言设置",
   "alertDefaultTitle": "Alert",
   "alertDefaultOk": "Ok",
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next"
+  },
   "signModal": {
     "signin": "Signin",
     "register": "Register",

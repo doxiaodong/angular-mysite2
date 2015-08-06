@@ -18,9 +18,10 @@ angular.module('angularMysite2')
     };
 
     this.getArticleList = function(category, obj) {
+      var url = obj.url ? obj.url : HOST_URL + '/article/articles/' + category + '/';
       return $http({
         method: 'GET',
-        url: HOST_URL + '/article/articles/' + category + '/',
+        url: url,
         headers: utils.getHeader()
       })
       ;
