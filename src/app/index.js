@@ -16,7 +16,14 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         }
       })
       /* article-tab */
-      .state('articles', {
+      .state('article', {
+        views: {
+          'article-tab': {
+            template: '<div ui-view="article-tab"></div>'
+          }
+        }
+      })
+      .state('article.articles', {
         url: '/article/:category/',
         views: {
           'article-tab': {
@@ -25,7 +32,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
           }
         }
       })
-      .state('article', {
+      .state('article.article', {
         url: '/article/:category/:url/',
         views: {
           'article-tab': {
@@ -35,7 +42,14 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         }
       })
       /* account-tab */
-      .state('accountInfo', {
+      .state('account', {
+        views: {
+          'account-tab': {
+            template: '<div ui-view="account-tab"></div>'
+          }
+        }
+      })
+      .state('account.info', {
         url: '/account/:user',
         views: {
           'account-tab': {
@@ -44,7 +58,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
           }
         }
       })
-      .state('accountSetting', {
+      .state('account.setting', {
         url: '/account/setting/',
         views: {
           'account-tab': {
@@ -55,10 +69,17 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
       })
 
       /* fourth-tab */
-      .state('fourthIndex', {
+      .state('fourth', {
+        views: {
+          'fourth-tab': {
+            template: '<div ui-view="fourth-tab"></div>'
+          }
+        }
+      })
+      .state('fourth.index', {
         url: '/fourth/index/',
         views: {
-          'account-tab': {
+          'fourth-tab': {
             templateUrl: 'app/fourth/fourth.html',
             controller: 'FourthIndexCtrl'
           }
@@ -83,10 +104,12 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
     $httpProvider.defaults.withCredentials = true;
   	localStorageServiceProvider.setPrefix('xd');
   })
-  .run(function($rootScope, $window, $document, $translate, localStorageService, CommonApi) {
+  .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi) {
     if ($rootScope.isFirst === undefined) {
       $rootScope.isFirst = true;
     }
+
+    $rootScope.$state = $state;
 
     CommonApi.initHomePage()
       .success(function(data, status, headers) {
@@ -114,6 +137,10 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
         $window.sessionStorage.removeItem('visibilityChangeTitle');
       }
       $rootScope.$apply();
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function() {
+      $rootScope.$state = $state;
     });
 
   })

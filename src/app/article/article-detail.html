@@ -7,7 +7,7 @@
       <div class="each-inner">
         <ul class="side-list clearfix">
           <li class="nowrap" ng-repeat="category in categories">
-            <span class="a type" ng-class="{ 'active': article.category.key === category.key }" ui-sref="articles({category: category.key})">{{ category.name }}</span>
+            <span class="a type" ng-class="{ 'active': article.category.key === category.key }" ui-sref="article.articles({category: category.key})">{{ category.name }}</span>
           </li>
         </ul>
       </div>
@@ -35,7 +35,7 @@
           <img class="pic left" ng-src="{{ reply.replyUser.pic }}" alt="">
           <div class="right">
             <div class="word">
-              <div class="a" ui-sref="accountInfo({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</div>
+              <div class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</div>
               <div class="mes">{{ reply.content }}</div>
             </div>
             <div class="message">
@@ -51,9 +51,9 @@
               <div class="right">
                 <div class="word">
                   <div>
-                    <span class="a" ui-sref="accountInfo({user: subReply.replyUser.username})">{{ subReply.replyUser.nickName }}</span>
+                    <span class="a" ui-sref="account.info({user: subReply.replyUser.username})">{{ subReply.replyUser.nickName }}</span>
                     <span class="nomal-color">&nbsp;{{ 'pages.article.lowercaseReply' | translate }}&nbsp;</span>
-                    <span class="a" ui-sref="accountInfo({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</span>：
+                    <span class="a" ui-sref="account.info({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</span>：
                   </div>
                   <div class="mes">{{ subReply.content }}</div>
                 </div>
@@ -68,7 +68,7 @@
             <li class="reply-floor show" ng-show="reply.input.show">
               <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent, reply.url, reply.index)">
                 <div class="form-group clearfix">
-                  <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<span class="a" ui-sref="accountInfo({user: reply.input.object})">{{ reply.input.nickName }}</span>：</span>
+                  <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<span class="a" ui-sref="account.info({user: reply.input.object})">{{ reply.input.nickName }}</span>：</span>
                   <textarea ng-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
                   <button ng-disabled="!REPLY_COMMENT.$valid || requesting" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>
                 </div>

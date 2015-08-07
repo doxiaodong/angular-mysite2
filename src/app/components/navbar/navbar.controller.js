@@ -24,9 +24,20 @@ angular.module('angularMysite2')
       ;
     };
 
-    $scope.selectIndex = function(index) {
-      $scope.index = index;
-    };
+    $scope.$on('$stateChangeSuccess', function() {
+      if ($state.includes('home')) {
+        $scope.index = 0;
+      }
+      if ($state.includes('article')) {
+        $scope.index = 1;
+      }
+      if ($state.includes('account')) {
+        $scope.index = 2;
+      }
+      if ($state.includes('fourth')) {
+        $scope.index = 3;
+      }
+    });
 
     $scope.user = {
       nickName: '',

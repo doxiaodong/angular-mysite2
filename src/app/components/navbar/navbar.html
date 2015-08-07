@@ -14,14 +14,14 @@
     <div class="nav-list-container">
       <div class="slider-nav" index="{{ index }}"></div>
       <ul class="nav-list">
-        <li><span class="each-nav a" ui-sref="home" ng-class="{ 'active': index===0 }" ng-click="selectIndex(0)">{{ 'navbar.index' | translate }}</span></li>
-        <li><span class="each-nav a" ui-sref="articles({category: 'all'})" ng-class="{ 'active': index===1 }" ng-click="selectIndex(1)">{{ 'navbar.article' | translate }}</span>
+        <li><span class="each-nav a" ui-sref="home" ng-class="{ 'active': index===0 }">{{ 'navbar.index' | translate }}</span></li>
+        <li><span class="each-nav a" ui-sref="article.articles({category: 'all'})" ng-class="{ 'active': index===1 }">{{ 'navbar.article' | translate }}</span>
         </li>
         <li id="account_nav">
-          <span ng-show="user.isSignin()" class="each-nav account a" ui-sref="accountInfo({user: user.username})" ng-class="{ 'active': index===2 }" ng-click="selectIndex(2)">{{ 'navbar.account' | translate }}</span>
+          <span ng-show="user.isSignin()" class="each-nav account a" ui-sref="account.info({user: user.username})" ng-class="{ 'active': index===2 }">{{ 'navbar.account' | translate }}</span>
           <span ng-show="!user.isSignin()" class="each-nav sign a" ng-click="showSign()">{{ 'navbar.account' | translate }}</span>
         </li>
-        <li><span class="each-nav a" ui-sref="fourthIndex" ng-class="{ 'active': index===3 }" ng-click="selectIndex(3)">{{ 'navbar.fourth' | translate }}</span></li>
+        <li><span class="each-nav a" ui-sref="fourth.index" ng-class="{ 'active': index===3 }">{{ 'navbar.fourth' | translate }}</span></li>
       </ul>
     </div>
   </nav>

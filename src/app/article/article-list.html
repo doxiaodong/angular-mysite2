@@ -7,7 +7,7 @@
       <div class="each-inner">
         <ul class="side-list clearfix">
           <li class="nowrap" ng-repeat="category in categories">
-            <span class="a type" ng-class="{ 'active': articleList.category === category.key }" ui-sref="articles({category: category.key})">{{ category.name }}</span>
+            <span class="a type" ng-class="{ 'active': articleList.category === category.key }" ui-sref="article.articles({category: category.key})">{{ category.name }}</span>
           </li>
         </ul>
       </div>
@@ -23,7 +23,7 @@
       <ul class="articles">
         <li class="article" ng-repeat="article in articles">
           <div class="title">
-            <span class="a" ui-sref="article({category: article.category, url: article.url})">{{ article.title }}</span>
+            <span class="a" ui-sref="article.article({category: article.category, url: article.url})">{{ article.title }}</span>
           </div>
           <div class="time">{{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
         </li>
