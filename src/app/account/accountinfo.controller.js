@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .controller('AccountInfoCtrl', function($window, $scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, HOST_URL) {
     $scope.itsMe = false;
     $scope.replies = [];

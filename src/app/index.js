@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
+angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
   .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -88,7 +88,7 @@ angular.module('angularMysite2', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSaniti
       ;
 
     $urlRouterProvider.otherwise('/');
-    $locationProvider.html5Mode(true)
+    $locationProvider.html5Mode(true);
   })
   .config(function($translateProvider) {
   	$translateProvider.useSanitizeValueStrategy('escaped');

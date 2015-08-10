@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, HOST_URL, xdAlert) {
     $scope.requesting = false;
     $scope.dirty = false;
@@ -47,7 +47,7 @@ angular.module('angularMysite2')
         nickname: user.nickname,
         pic: HOST_URL + '/media/' + user.pic,
         sex: user.sex
-      }
+      };
     }
   })
 ;

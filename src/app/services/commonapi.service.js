@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .service('CommonApi', function($window, $rootScope, $http, $cookies, utils, HOST_URL) {
     var header = {'Content-Type': 'application/x-www-form-urlencoded'};
 
@@ -18,6 +18,6 @@ angular.module('angularMysite2')
           }
         }
 
-      })
-    }
+      });
+    };
   });

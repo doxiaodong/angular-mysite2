@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .service('AccountApi', function($window, $rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
 
     this.signin = function(obj) {
@@ -76,7 +76,7 @@ angular.module('angularMysite2')
         method: 'GET',
         url: HOST_URL + '/account/subcomments/' + obj.user + '/',
         headers: utils.getHeader()
-      })
+      });
     };
 
     this.changeProfile = function(obj) {
@@ -88,7 +88,7 @@ angular.module('angularMysite2')
           'X-CSRFToken': $cookies.csrftoken
         },
         data: obj.data
-      })
+      });
     };
 
   });

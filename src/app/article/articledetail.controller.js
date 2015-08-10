@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, ArticleApi, CommentApi, HOST_URL, xdAlert) {
     $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)

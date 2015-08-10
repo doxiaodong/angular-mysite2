@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .service('CommentApi', function($http, $cookies, utils, HOST_URL) {
 
     this.addArticleReply = function(obj) {

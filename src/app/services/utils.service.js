@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .factory('utils', function($cookies) {
     return {
       usernamePattern: /^\w{6,20}$/,
@@ -17,7 +17,7 @@ angular.module('angularMysite2')
         return {
           'Content-Type': 'application/x-www-form-urlencoded',
           'X-CSRFToken': $cookies.csrftoken
-        }
+        };
       },
       itsMe: function(a, b) {
         return a === b;

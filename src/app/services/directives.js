@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularMysite2')
+angular.module('darlin')
   .directive('langTranslate', function($translate, $rootScope, $timeout) {
     return {
       restrict: 'A',
@@ -97,8 +97,8 @@ angular.module('angularMysite2')
             } else {
               xdAlert.show(data.msg);
             }
-          })
-        }
+          });
+        };
       }
     };
   })
@@ -140,7 +140,7 @@ angular.module('angularMysite2')
           if (scope.opts.callback) {
             scope.opts.callback();
           }
-        }
+        };
       }
     };
   })
@@ -160,13 +160,13 @@ angular.module('angularMysite2')
       restrict: 'A',
       replace: true,
       templateUrl: 'app/components/footer/footer.html'
-    }
+    };
   })
   .directive('xdNavbar', function() {
     return {
       restrict: 'A',
       replace: true,
       templateUrl: 'app/components/navbar/navbar.html'
-    }
+    };
   })
 ;
