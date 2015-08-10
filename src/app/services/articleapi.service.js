@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .service('ArticleApi', function($http, $cookies, utils, HOST_URL) {
 
     this.getArticleCategories = function(obj) {

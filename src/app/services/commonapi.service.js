@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .service('CommonApi', function($window, $rootScope, $http, $cookies, utils, HOST_URL) {
     var header = {'Content-Type': 'application/x-www-form-urlencoded'};
 

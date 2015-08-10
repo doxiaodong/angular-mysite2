@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .controller('FourthIndexCtrl', function($scope) {
 
   })

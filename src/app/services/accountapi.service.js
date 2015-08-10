@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .service('AccountApi', function($window, $rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
 
     this.signin = function(obj) {

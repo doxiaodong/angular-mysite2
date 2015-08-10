@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
 	.controller('HomeCtrl', function($scope, ArticleApi) {
     $scope.pagePrev = '';
     $scope.pageNext = '';

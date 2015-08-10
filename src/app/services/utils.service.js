@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .factory('utils', function($cookies) {
     return {
       usernamePattern: /^\w{6,20}$/,

@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule'])
+angular.module('app', []);
+
+angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule', 'app'])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
   .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, HOST_URL, xdAlert) {
     $scope.requesting = false;
     $scope.dirty = false;

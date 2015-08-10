@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .controller('NavbarCtrl', function($scope, $rootScope, $state, $timeout, xdAlert, AccountApi) {
 
     $scope.index = 0;

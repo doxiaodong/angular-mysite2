@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
 	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi) {
     var categories = JSON.parse($window.sessionStorage.getItem('categories'));
     if (!categories) {

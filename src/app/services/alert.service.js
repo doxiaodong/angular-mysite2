@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .service('xdAlert', function($rootScope) {
     this.show = function(content, opts, callbackOk) {
       var oopts = {};

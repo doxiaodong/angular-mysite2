@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('darlin')
+angular.module('app')
   .directive('langTranslate', function($translate, $rootScope, $timeout) {
     return {
       restrict: 'A',
