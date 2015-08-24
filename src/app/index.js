@@ -19,6 +19,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
       })
       /* article-tab */
       .state('article', {
+        url: '/article',
         views: {
           'article-tab': {
             template: '<div ui-view="article-tab"></div>'
@@ -26,7 +27,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         }
       })
       .state('article.articles', {
-        url: '/article/:category/',
+        url: '/:category/',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-list.html',
@@ -35,7 +36,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         }
       })
       .state('article.article', {
-        url: '/article/:category/:url/',
+        url: '/:category/:url/',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-detail.html',
@@ -45,6 +46,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
       })
       /* account-tab */
       .state('account', {
+        url: '/account',
         views: {
           'account-tab': {
             template: '<div ui-view="account-tab"></div>'
@@ -52,7 +54,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         }
       })
       .state('account.info', {
-        url: '/account/:user',
+        url: '/:user',
         views: {
           'account-tab': {
             templateUrl: 'app/account/account-info.html',
@@ -61,7 +63,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         }
       })
       .state('account.setting', {
-        url: '/account/setting/',
+        url: '/setting/',
         views: {
           'account-tab': {
             templateUrl: 'app/account/setting.html',
@@ -72,6 +74,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
 
       /* fourth-tab */
       .state('fourth', {
+        url: 'fourth',
         views: {
           'fourth-tab': {
             template: '<div ui-view="fourth-tab"></div>'
@@ -79,7 +82,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
         }
       })
       .state('fourth.index', {
-        url: '/fourth/index/',
+        url: '/index/',
         views: {
           'fourth-tab': {
             templateUrl: 'app/fourth/fourth.html',
