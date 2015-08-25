@@ -152,7 +152,6 @@ angular.module('darlin', [
       $rootScope.$apply();
     });
 
-
     $rootScope.$on('$stateChangeStart', function() {
       xdLoading.show();
     });

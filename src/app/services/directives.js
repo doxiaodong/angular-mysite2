@@ -185,4 +185,16 @@ angular.module('app')
       }
     };
   })
+  .directive('xdPlatform', function($window) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attr) {
+        var ua = $window.navigator.userAgent;
+        scope.mobile = ua.match(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i) && ua.match(/Mobile/i) !== null;
+        if (scope.mobile) {
+          element.addClass('mobile');
+        }
+      }
+    };
+  })
 ;
