@@ -175,12 +175,12 @@ angular.module('app')
       replace: true,
       templateUrl: 'app/templates/xd-loading.html',
       link: function(scope, element, attr) {
-        scope.show = false;
+        scope.showLoading = false;
         scope.$on('loading.show', function() {
-          scope.show = true;
+          scope.showLoading = true;
         });
         scope.$on('loading.hide', function() {
-          scope.show = false;
+          scope.showLoading = false;
         });
       }
     };

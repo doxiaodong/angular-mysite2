@@ -5,6 +5,7 @@ angular.module('app')
     var interceptor = {
       'request': function (config) {
         xdLoading.show();
+        console.log(config)
         return config;
       },
       'response': function (response) {
