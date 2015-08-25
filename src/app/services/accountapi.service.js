@@ -18,8 +18,7 @@ angular.module('app')
           $rootScope.$broadcast('get_user_info', data.data.user);
           localStorageService.add('user', {username: obj.username, password: obj.password});
         }
-      })
-        ;
+      });
     };
 
     this.register = function(obj) {
@@ -52,8 +51,7 @@ angular.module('app')
           $window.user = '';
           $rootScope.$broadcast('account.signout');
         }
-      })
-        ;
+      });
     };
 
     this.getUserInfo = function(obj) {
@@ -67,8 +65,7 @@ angular.module('app')
       }).success(function(data) {
         if (+data.status === 1) {
         }
-      })
-        ;
+      });
     };
 
     this.getAccountSubComments = function(obj) {

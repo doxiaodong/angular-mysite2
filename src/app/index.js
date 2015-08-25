@@ -2,10 +2,20 @@
 
 angular.module('app', []);
 
-angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'pascalprecht.translate', 'angular-md5', 'LocalStorageModule', 'app'])
+angular.module('darlin', [
+  'ngAnimate',
+  'ngCookies',
+  'ngTouch',
+  'ngSanitize',
+  'ui.router',
+  'pascalprecht.translate',
+  'angular-md5',
+  'LocalStorageModule',
+  'app'
+])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
-  .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+  .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */
       .state('home', {
@@ -74,7 +84,7 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
 
       /* fourth-tab */
       .state('fourth', {
-        url: 'fourth',
+        url: '/fourth',
         views: {
           'fourth-tab': {
             template: '<div ui-view="fourth-tab"></div>'
@@ -107,19 +117,17 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
   })
   .config(function($httpProvider, localStorageServiceProvider) {
     $httpProvider.defaults.withCredentials = true;
+    $httpProvider.interceptors.push('HttpInterceptor');
   	localStorageServiceProvider.setPrefix('xd');
   })
-  .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi) {
+  .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading) {
     if ($rootScope.isFirst === undefined) {
       $rootScope.isFirst = true;
     }
 
     $rootScope.$state = $state;
 
-    CommonApi.initHomePage()
-      .success(function(data, status, headers) {
-        //console.log(data, headers());
-      });
+    CommonApi.initHomePage();
     $rootScope.title = '亲爱的小窝';
     $rootScope.$on('titleChange', function(e, title) {
       $rootScope.isFirst = false;
@@ -144,8 +152,13 @@ angular.module('darlin', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui
       $rootScope.$apply();
     });
 
+
+    $rootScope.$on('$stateChangeStart', function() {
+      xdLoading.show();
+    });
     $rootScope.$on('$stateChangeSuccess', function() {
       $rootScope.$state = $state;
+      xdLoading.hide();
     });
 
   })

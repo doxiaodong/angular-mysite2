@@ -169,4 +169,20 @@ angular.module('app')
       templateUrl: 'app/components/navbar/navbar.html'
     };
   })
+  .directive('xdLoading', function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl: 'app/templates/xd-loading.html',
+      link: function(scope, element, attr) {
+        scope.show = false;
+        scope.$on('loading.show', function() {
+          scope.show = true;
+        });
+        scope.$on('loading.hide', function() {
+          scope.show = false;
+        });
+      }
+    };
+  })
 ;
