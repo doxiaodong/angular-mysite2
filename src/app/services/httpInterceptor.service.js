@@ -16,7 +16,8 @@ angular.module('app')
       },
       'responseError': function (rejection) {
         xdLoading.hide();
-        xdAlert.show(rejection.statusText);
+        var text = rejection.statusText || 'error';
+        xdAlert.show(text);
         return rejection
       }
     };
