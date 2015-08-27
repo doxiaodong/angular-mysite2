@@ -18,7 +18,7 @@ angular.module('app')
         xdLoading.hide();
         var text = rejection.statusText || 'error';
         xdAlert.show(text);
-        return rejection
+        return rejection;
       }
     };
     return interceptor;
