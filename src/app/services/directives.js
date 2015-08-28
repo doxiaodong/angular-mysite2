@@ -176,11 +176,19 @@ angular.module('app')
       templateUrl: 'app/templates/xd-loading.html',
       link: function(scope, element, attr) {
         scope.showLoading = false;
+        var loadingNum = 0;
         scope.$on('loading.show', function() {
+          loadingNum++;
           scope.showLoading = true;
+          //console.log(loadingNum, 'show');
         });
         scope.$on('loading.hide', function() {
-          scope.showLoading = false;
+          loadingNum--;
+          if (loadingNum <= 0) {
+            loadingNum = 0;
+            scope.showLoading = false;
+          }
+          //console.log(loadingNum, 'hide');
         });
       }
     };
@@ -191,9 +199,6 @@ angular.module('app')
       link: function(scope, element, attr) {
         var ua = $window.navigator.userAgent;
         scope.mobile = ua.match(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i) && ua.match(/Mobile/i) !== null;
-        if (scope.mobile) {
-          element.addClass('mobile');
-        }
       }
     };
   })

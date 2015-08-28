@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .factory('HttpInterceptor', function($q, xdLoading, xdAlert) {
+  .factory('HttpInterceptor', function($q, $translate, xdLoading, xdAlert) {
     var interceptor = {
       'request': function (config) {
         xdLoading.show();
@@ -15,8 +15,15 @@ angular.module('app')
         return $q.reject(rejection);
       },
       'responseError': function (rejection) {
+        var language = $translate.storage().get() || 'zh_CN';
+        var errorText = '';
+        if (language === 'en_US') {
+          errorText = 'request error';
+        } else {
+          errorText = '请求出错';
+        }
         xdLoading.hide();
-        var text = rejection.statusText || 'error';
+        var text = rejection.statusText || errorText;
         xdAlert.show(text);
         return rejection
       }
