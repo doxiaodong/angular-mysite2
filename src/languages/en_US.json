@@ -3,6 +3,7 @@
   "langSetting": "语言设置",
   "alertDefaultTitle": "Alert",
   "alertDefaultOk": "Ok",
+  "search": "Search",
   "pagination": {
     "prev": "Prev",
     "next": "Next"

@@ -21,7 +21,10 @@
     </div>
     <div class="each-inner">
       <ul class="articles">
-        <li class="article" ng-repeat="article in articles">
+        <li class="article">
+          <input type="text" class="form-control" ng-model="searchText.title" placeholder="{{ 'search' | translate }}">
+        </li>
+        <li class="article" ng-repeat="article in articles | filter: searchText">
           <div class="title">
             <span class="a" ui-sref="article.article({category: article.category, url: article.url})">{{ article.title }}</span>
           </div>
