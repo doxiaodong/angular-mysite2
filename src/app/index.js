@@ -103,7 +103,7 @@ angular.module('darlin', [
       ;
 
     $urlRouterProvider.otherwise('/');
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true).hashPrefix('!');
   })
   .config(function($translateProvider) {
   	$translateProvider.useSanitizeValueStrategy('escaped');

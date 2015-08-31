@@ -146,6 +146,16 @@ article.container {
   min-height: ~'calc(100% - 50px)';
 }
 
+.standalone {
+  header.header {
+    height: 70px;
+    padding-top: 20px;
+  }
+  article.container {
+    padding: @header_height+20px 0 5px 0;
+  }
+}
+
 .pjaxloader {
   position: fixed;
   top: 0;
