@@ -128,7 +128,7 @@ angular.module('darlin', [
     $rootScope.$state = $state;
 
     CommonApi.initHomePage();
-    $rootScope.title = '亲爱的小窝';
+    $rootScope.title = '毒枭东';
     $rootScope.$on('titleChange', function(e, title) {
       $rootScope.isFirst = false;
       $rootScope.title = title;
