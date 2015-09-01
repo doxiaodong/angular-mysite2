@@ -47,7 +47,7 @@
       "floor": "floor",
       "replyArticle": "Comment",
       "replyPlaceholder": "reply",
-      "commentPlaceholder": "Write your opinions~",
+      "commentPlaceholder": "Write your opinions~ and markdown supported",
       "comment": "Comment",
       "none": "No articles"
     },

@@ -16,7 +16,7 @@ angular.module('darlin', [
 ])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
-  .constant('SyntaxHighlighter', SyntaxHighlighter)
+  //.constant('SyntaxHighlighter', SyntaxHighlighter)
   .config(function(markedProvider) {
     markedProvider.setOptions({
       gfm: true,

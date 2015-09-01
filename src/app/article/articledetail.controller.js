@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, HOST_URL, xdAlert, SyntaxHighlighter) {
+  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, HOST_URL, xdAlert) {
     $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {
@@ -14,11 +14,11 @@ angular.module('app')
           createTime: data.create_time,
           content: data.content
         };
-        $timeout(function() {
-          if (!$rootScope.platform.mobile) {
-            SyntaxHighlighter.highlight();
-          }
-        }, 100);
+        //$timeout(function() {
+        //  if (!$rootScope.platform.mobile) {
+        //    SyntaxHighlighter.highlight();
+        //  }
+        //}, 100);
         $scope.$emit('title.get', data.title);
       })
     ;
