@@ -11,11 +11,21 @@ angular.module('darlin', [
   'pascalprecht.translate',
   'angular-md5',
   'LocalStorageModule',
-  'app'
+  'app',
+  'hc.marked'
 ])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
   .constant('SyntaxHighlighter', SyntaxHighlighter)
+  .config(function(markedProvider) {
+    markedProvider.setOptions({
+      gfm: true,
+      tables: true,
+      highlight: function(code) {
+        return hljs.highlightAuto(code).value;
+      }
+    });
+  })
   .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       /* home-tab */

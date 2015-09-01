@@ -22,6 +22,7 @@
     </div>
     <div class="each-inner">
       <div class="each-article" ng-bind-html="article.content"></div>
+      <!--<div class="each-article" marked="article.content"></div>-->
     </div>
   </div>
 
@@ -36,7 +37,7 @@
           <div class="right">
             <div class="word">
               <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
-              <div class="mes">{{ reply.content }}</div>
+              <div class="mes" marked="reply.content"></div>
             </div>
             <div class="message">
               <span class="time">{{ reply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
@@ -55,7 +56,7 @@
                     <span class="nomal-color">&nbsp;{{ 'pages.article.lowercaseReply' | translate }}&nbsp;</span>
                     <a class="a" ui-sref="account.info({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</a>：
                   </div>
-                  <div class="mes">{{ subReply.content }}</div>
+                  <div class="mes" marked="subReply.content"></div>
                 </div>
                 <div class="message">
                   <span class="time">{{ subReply.time | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
