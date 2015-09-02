@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('app')
-  .directive('langTranslate', function($translate, $rootScope, $timeout) {
+  .directive('langTranslate', function($translate, $rootScope, $timeout, $document, DEFAULT_LANGUAGE) {
     return {
       restrict: 'A',
       replace: true,
       templateUrl: 'app/templates/lang-translate.html',
       link: function (scope, element, attr) {
 
-        var language = $translate.storage().get() || 'zh_CN';
+        var language = $translate.storage().get() || DEFAULT_LANGUAGE;
 
         scope.selected = language;
         scope.langs = [{
@@ -29,6 +29,18 @@ angular.module('app')
             $rootScope.$broadcast('languageChange');
           }, 30);
         };
+
+        $document.bind('click', function() {
+          if (scope.show) {
+            scope.show = false;
+            scope.$apply();
+          }
+        });
+
+        element.bind('click', function(e) {
+          e.stopPropagation();
+        });
+
       }
     };
   })

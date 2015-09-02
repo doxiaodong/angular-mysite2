@@ -16,6 +16,7 @@ angular.module('darlin', [
 ])
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
+  .constant('DEFAULT_LANGUAGE', 'zh_CN')
   //.constant('SyntaxHighlighter', SyntaxHighlighter)
   .config(function(markedProvider) {
     markedProvider.setOptions({
@@ -123,7 +124,7 @@ angular.module('darlin', [
 	    prefix: 'languages/',
 	    suffix: '.json'
 	  });
-  	$translateProvider.preferredLanguage('en_US');
+  	$translateProvider.preferredLanguage('zh_CN');
   	$translateProvider.useLocalStorage();
   })
   .config(function($httpProvider, localStorageServiceProvider) {
@@ -131,7 +132,7 @@ angular.module('darlin', [
     $httpProvider.interceptors.push('HttpInterceptor');
   	localStorageServiceProvider.setPrefix('xd');
   })
-  .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading) {
+  .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE) {
     if ($rootScope.isFirst === undefined) {
       $rootScope.isFirst = true;
     }
@@ -145,12 +146,12 @@ angular.module('darlin', [
       $rootScope.title = title;
       $rootScope.$emit('pages.afterEnter');
     });
-    $document[0].addEventListener('visibilitychange', function() {
-      var state = $document[0].visibilityState;
+    $document.bind('visibilitychange', function() {
+      var state = this.visibilityState;
       if (state === 'hidden') {
         $window.sessionStorage.setItem('visibilityChangeTitle', $rootScope.title);
         var title = '点我瞧瞧吧～';
-        var language = $translate.storage().get() || 'zh_CN';
+        var language = $translate.storage().get() || DEFAULT_LANGUAGE;
         if (language === 'en_US') {
           title = 'Click me to see see~';
         }

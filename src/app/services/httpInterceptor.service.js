@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .factory('HttpInterceptor', function($q, $translate, xdLoading, xdAlert) {
+  .factory('HttpInterceptor', function($q, $translate, xdLoading, xdAlert, DEFAULT_LANGUAGE) {
     var interceptor = {
       'request': function (config) {
         xdLoading.show();
@@ -15,7 +15,7 @@ angular.module('app')
         return $q.reject(rejection);
       },
       'responseError': function (rejection) {
-        var language = $translate.storage().get() || 'zh_CN';
+        var language = $translate.storage().get() || DEFAULT_LANGUAGE;
         var errorText = '';
         if (language === 'en_US') {
           errorText = 'request error';
