@@ -17,7 +17,6 @@ angular.module('darlin', [
   .constant('HOST_URL', '//api.darlin.me')
   .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
   .constant('DEFAULT_LANGUAGE', 'zh_CN')
-  //.constant('SyntaxHighlighter', SyntaxHighlighter)
   .config(function(markedProvider) {
     markedProvider.setOptions({
       gfm: true,
