@@ -17,11 +17,15 @@ angular.module('app')
       getUser($window.user);
     }
 
-    $rootScope.$on('get_user_info', function (e, data) {
+    $scope.$on('get_user_info', function (e, data) {
       getUser(data);
     });
 
-    $rootScope.$on('account.signout', function() {
+    $scope.$on('account.signout', function() {
+      $state.go('home');
+    });
+
+    $scope.$on('get_no_user_info', function() {
       $state.go('home');
     });
 

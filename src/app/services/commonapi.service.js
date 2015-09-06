@@ -15,6 +15,8 @@ angular.module('app')
             $window.user = data.data.user;
             //console.log($window.user, 1)
             $rootScope.$broadcast('get_user_info', data.data.user);
+          } else {
+            $rootScope.$broadcast('get_no_user_info');
           }
         }
 

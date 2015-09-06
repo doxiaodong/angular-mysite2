@@ -48,7 +48,7 @@ angular.module('darlin', [
         }
       })
       .state('article.articles', {
-        url: '/:category/',
+        url: '/:category',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-list.html',
@@ -57,7 +57,7 @@ angular.module('darlin', [
         }
       })
       .state('article.article', {
-        url: '/:category/:url/',
+        url: '/:category/:url',
         views: {
           'article-tab': {
             templateUrl: 'app/article/article-detail.html',
@@ -74,17 +74,8 @@ angular.module('darlin', [
           }
         }
       })
-      .state('account.info', {
-        url: '/:user/',
-        views: {
-          'account-tab': {
-            templateUrl: 'app/account/account-info.html',
-            controller: 'AccountInfoCtrl'
-          }
-        }
-      })
       .state('account.setting', {
-        url: '/setting/',
+        url: '/setting',
         views: {
           'account-tab': {
             templateUrl: 'app/account/setting.html',
@@ -92,10 +83,19 @@ angular.module('darlin', [
           }
         }
       })
+      .state('account.info', {
+        url: '/:user',
+        views: {
+          'account-tab': {
+            templateUrl: 'app/account/account-info.html',
+            controller: 'AccountInfoCtrl'
+          }
+        }
+      })
 
       /* fourth-tab */
       .state('fourth', {
-        url: '/fourth',
+        url: '/self',
         views: {
           'fourth-tab': {
             template: '<div ui-view="fourth-tab"></div>'
@@ -103,7 +103,7 @@ angular.module('darlin', [
         }
       })
       .state('fourth.index', {
-        url: '/index/',
+        url: '/waiting',
         views: {
           'fourth-tab': {
             templateUrl: 'app/fourth/fourth.html',
