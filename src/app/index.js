@@ -75,7 +75,7 @@ angular.module('darlin', [
         }
       })
       .state('account.info', {
-        url: '/:user',
+        url: '/:user/',
         views: {
           'account-tab': {
             templateUrl: 'app/account/account-info.html',
