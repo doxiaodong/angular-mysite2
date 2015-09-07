@@ -15,7 +15,7 @@ angular.module('darlin', [
   'hc.marked'
 ])
   .constant('HOST_URL', '//api.darlin.me')
-  .constant('STATIC_URL', '//dn-darlinme.qbox.me/')
+  .constant('STATIC_URL', '//dn-darlin.qbox.me/')
   .constant('DEFAULT_LANGUAGE', 'zh_CN')
   .config(function(markedProvider) {
     markedProvider.setOptions({
@@ -132,6 +132,9 @@ angular.module('darlin', [
   	localStorageServiceProvider.setPrefix('xd');
   })
   .run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE) {
+
+    $rootScope.VERSION = '2.0.1';
+
     if ($rootScope.isFirst === undefined) {
       $rootScope.isFirst = true;
     }
