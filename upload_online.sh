@@ -1,1 +1,1 @@
-scp -r online/ login@darlin.me:~
+scp -r dist/ login@darlin.me:~/angular-mysite2
