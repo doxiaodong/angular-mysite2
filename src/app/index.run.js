@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('app')
-.run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE) {
+.run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE, VERSION) {
 
-  $rootScope.VERSION = '2.0.1';
+  $rootScope.VERSION = VERSION;
 
   if ($rootScope.isFirst === undefined) {
     $rootScope.isFirst = true;
