@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-.run(function($rootScope, $window, $document, $state, $translate, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE, VERSION) {
+.run(function($rootScope, $window, $document, $state, $translate, $timeout, localStorageService, CommonApi, xdLoading, DEFAULT_LANGUAGE, VERSION) {
 
   $rootScope.VERSION = VERSION;
 
@@ -16,7 +16,7 @@ angular.module('app')
   $rootScope.$on('titleChange', function(e, title) {
     $rootScope.isFirst = false;
     $rootScope.title = title;
-    $rootScope.$emit('pages.afterEnter');
+    $rootScope.$broadcast('pages.afterEnter');
   });
   $document.bind('visibilitychange', function() {
     var state = this.visibilityState;
@@ -44,4 +44,9 @@ angular.module('app')
     xdLoading.hide();
   });
 
+  angular.element($window).bind('hashchange', function(e){
+    $timeout(function(){
+      $document[0].body.scrollTop -= 50;
+    },10);
+  });
 });
