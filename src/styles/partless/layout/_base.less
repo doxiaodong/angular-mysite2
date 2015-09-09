@@ -61,6 +61,7 @@ textarea, input {
 
 
 .markdown {
+  @indent: 24px;
   address,
 
   blockquote,
@@ -133,7 +134,7 @@ textarea, input {
 
   strong          { font-weight: bolder }
 
-  blockquote      { margin-left: 40px; margin-right: 40px }
+  blockquote      { margin-left: @indent; margin-right: @indent }
 
   i, cite, em,
 
@@ -173,7 +174,7 @@ textarea, input {
 
   ol, ul, dir,
 
-  menu, dd        { margin-left: 40px }
+  menu, dd        { margin-left: @indent }
 
   ol li           { list-style-type: decimal }
 
