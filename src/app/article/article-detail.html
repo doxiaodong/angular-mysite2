@@ -70,7 +70,8 @@
               <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent, reply.url, reply.index)">
                 <div class="form-group clearfix">
                   <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<a class="a" ui-sref="account.info({user: reply.input.object})">{{ reply.input.nickName }}</a>：</span>
-                  <textarea ng-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+                  <textarea ng-model="submitForm.replyContent" auto-focus="reply.input.show" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+                  <!--<div contenteditable="true" strip-br auto-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea"></div>-->
                   <button ng-disabled="!REPLY_COMMENT.$valid || requesting" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>
                 </div>
               </form>
@@ -86,7 +87,8 @@
       <form ng-submit="commentSubmit(submitForm.commentContent)" name="REPLY_ARTICLE" class="form">
         <div class="form-group clearfix">
           <label for="add_content"></label>
-          <textarea ng-model="submitForm.commentContent" class="form-control reply-textarea" id="add_content" cols="30" rows="10" type="text" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+          <textarea ng-model="submitForm.commentContent" class="form-control reply-textarea" type="text" id="add_content" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
+          <!--<div contenteditable="true" strip-br ng-model="submitForm.commentContent" class="form-control reply-textarea" id="add_content"></div>-->
           <button ng-disabled="REPLY_ARTICLE.$invalid || requesting" class="main btn reply-button" type="submit">{{ 'pages.article.comment' | translate }}</button>
         </div>
       </form>
