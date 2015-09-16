@@ -24,7 +24,7 @@ angular.module('app')
         + level
         + '>\n';
     }
-  })
+  });
 })
 .config(function($translateProvider) {
   $translateProvider.useSanitizeValueStrategy('escaped');
