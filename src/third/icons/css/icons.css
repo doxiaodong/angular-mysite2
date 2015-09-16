@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'darlinme';
+  src:url('../fonts/darlinme.eot?-d5y1ow');
+  src:url('../fonts/darlinme.eot?#iefix-d5y1ow') format('embedded-opentype'),
+  url('../fonts/darlinme.ttf?-d5y1ow') format('truetype'),
+  url('../fonts/darlinme.woff?-d5y1ow') format('woff'),
+  url('../fonts/darlinme.svg?-d5y1ow#darlinme') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ion-"], [class*=" ion-"] {
+  font-family: 'darlinme';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ion-android-delete:before {
+  content: "\e600";
+}
+.ion-checkmark:before {
+  content: "\e601";
+}
+.ion-ios-close-empty:before {
+  content: "\e602";
+}
+.ion-reply:before {
+  content: "\e603";
+}
