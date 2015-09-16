@@ -12,7 +12,9 @@ angular.module('app')
   });
   markedProvider.setRenderer({
     heading: function (text, level) {
-      var innerText = angular.element(text).text();
+      var ele = document.createElement('a');
+      ele.innerHTML = text;
+      var innerText = angular.element(ele).text();
       //var encodeText = encodeURI(innerText);
       return '<h'
         + level
