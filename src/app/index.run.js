@@ -44,9 +44,4 @@ angular.module('app')
     xdLoading.hide();
   });
 
-  angular.element($window).bind('hashchange', function(e){
-    $timeout(function(){
-      $document[0].body.scrollTop -= 50;
-    },10);
-  });
 });

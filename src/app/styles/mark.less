@@ -1,0 +1,23 @@
+div[marked] {
+  code {
+    display: block;
+    overflow-x: auto;
+    background: #1d1f21;
+    color: #c5c8c6;
+    padding: 0.5em;
+    -webkit-text-size-adjust: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: -@header_height;
+    padding-top: @header_height;
+  }
+}
+.standalone {
+  @header_height: 70px;
+  div[marked] {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: -@header_height;
+      padding-top: @header_height;
+    }
+  }
+}
