@@ -17,7 +17,7 @@ angular.module('app')
 
           standalone: $window.navigator.standalone
         };
-        scope.platform.ios = scope.platform.ipad && scope.platform.iphone;
+        scope.platform.ios = scope.platform.ipad || scope.platform.iphone;
         scope.platform.ios7 = scope.platform.ios && ua.match(/os 7/i) !== null;
         scope.platform.ios8 = scope.platform.ios && ua.match(/os 8/i) !== null;
         scope.platform.ios9 = scope.platform.ios && ua.match(/os 9/i) !== null;
