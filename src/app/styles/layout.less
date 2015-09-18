@@ -150,12 +150,14 @@ article.container {
 }
 
 .standalone {
-  header.header {
-    height: 70px;
-    padding-top: 20px;
-  }
-  article.container {
-    padding: @header_height+20px 0 5px 0;
+  &.ios7, &.ios8 {
+    header.header {
+      height: 70px;
+      padding-top: 20px;
+    }
+    article.container {
+      padding: @header_height+20px 0 5px 0;
+    }
   }
 }
 

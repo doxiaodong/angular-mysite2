@@ -14,10 +14,12 @@ div[marked] {
 }
 .standalone {
   @header_height: 70px;
-  div[marked] {
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: -@header_height;
-      padding-top: @header_height;
+  &.ios7, &.ios8 {
+    div[marked] {
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: -@header_height;
+        padding-top: @header_height;
+      }
     }
   }
 }

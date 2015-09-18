@@ -14,11 +14,6 @@ angular.module('app')
           createTime: data.create_time,
           content: data.content
         };
-        //$timeout(function() {
-        //  if (!$rootScope.platform.mobile) {
-        //    SyntaxHighlighter.highlight();
-        //  }
-        //}, 100);
         $scope.$emit('title.get', data.title);
       })
     ;
