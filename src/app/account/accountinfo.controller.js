@@ -42,7 +42,7 @@ angular.module('app')
 
 
     function getRepliesOfArticle(user) {
-      if (+user.id === 1) {
+      if (+user.id === 1 || +user.id === 2) {
         ArticleApi.getAllComments()
           .success(function(data) {
             if (data.results.length !== 0) {
