@@ -70,7 +70,9 @@
       "male": "Male",
       "female": "Female",
       "pic": "Picture",
-      "save": "Save"
+      "save": "Save",
+      "fold": "Fold",
+      "expand": "Expand"
     }
   }
 }

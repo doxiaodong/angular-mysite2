@@ -20,8 +20,12 @@
   <div class="page-block" ng-if="itsMe">
     <div class="each-header">
       <span class="big-size">{{ 'pages.account.notification' | translate }}</span>
+      <span class="a pull-right no-select" ng-click="replyContainerFold = !replyContainerFold">
+        <span ng-if="!replyContainerFold">{{ 'pages.account.fold' | translate }}</span>
+        <span ng-if="replyContainerFold">{{ 'pages.account.expand' | translate }}</span>
+      </span>
     </div>
-    <div class="each-inner">
+    <div class="each-inner" ng-if="!replyContainerFold">
       <ul class="replies">
         <li class="each-reply" ng-repeat="reply in replies">
           <img class="pic left" ui-sref="account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
@@ -44,11 +48,15 @@
     </div>
   </div>
 
-  <div class="page-block" ng-if="itsMe">
+  <div class="page-block" ng-if="itsMe && supperUser">
     <div class="each-header">
       <span class="big-size">{{ 'pages.account.notificationArticle' | translate }}</span>
+      <span class="a pull-right no-select" ng-click="commentContainerFold = !commentContainerFold">
+        <span ng-if="!commentContainerFold">{{ 'pages.account.fold' | translate }}</span>
+        <span ng-if="commentContainerFold">{{ 'pages.account.expand' | translate }}</span>
+      </span>
     </div>
-    <div class="each-inner">
+    <div class="each-inner" ng-if="!commentContainerFold">
       <ul class="replies">
         <li class="each-reply" ng-repeat="reply in repliesOfArticle">
           <img class="pic left" ui-sref="account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">

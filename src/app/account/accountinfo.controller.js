@@ -6,6 +6,9 @@ angular.module('app')
     $scope.replies = [];
     $scope.repliesOfArticle = [];
 
+    $scope.replyContainerFold = false;
+    $scope.commentContainerFold = false;
+
     $rootScope.$on('account.signout', function() {
       $scope.itsMe = false;
     });
@@ -58,6 +61,7 @@ angular.module('app')
               });
             }
           });
+        $scope.supperUser = true;
       }
     }
 
