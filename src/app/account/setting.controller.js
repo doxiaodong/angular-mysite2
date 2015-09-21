@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, HOST_URL, xdAlert) {
+  .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, STATIC_URL, HEAD_PIC_STYLE, xdAlert) {
     $scope.requesting = false;
     $scope.dirty = false;
     $scope.usernamePattern = utils.usernamePattern;
@@ -49,7 +49,7 @@ angular.module('app')
         username: user.username,
         email: user.email,
         nickname: user.nickname,
-        pic: HOST_URL + '/media/' + user.pic,
+        pic: STATIC_URL + user.pic + HEAD_PIC_STYLE,
         sex: user.sex
       };
     }

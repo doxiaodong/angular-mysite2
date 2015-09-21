@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, HOST_URL, xdAlert) {
+  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, STATIC_URL, HEAD_PIC_STYLE, xdAlert) {
     $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {
@@ -34,8 +34,8 @@ angular.module('app')
           //updateComments();
           clearSubmitForm();
           var sub = data.data.subComment;
-          sub.replyObject.pic = HOST_URL + '/media/' + sub.replyObject.pic;
-          sub.replyUser.pic = HOST_URL + '/media/' + sub.replyUser.pic;
+          sub.replyObject.pic = STATIC_URL + sub.replyObject.pic + HEAD_PIC_STYLE;
+          sub.replyUser.pic = STATIC_URL + sub.replyUser.pic + HEAD_PIC_STYLE;
           $scope.replies[index-1].subReplies.push(sub);
           $scope.articleReplies += 1;
         } else {
@@ -64,7 +64,7 @@ angular.module('app')
           }
 
           reply.input = {show: false};
-          reply.replyUser.pic = HOST_URL + '/media/' + reply.replyUser.pic;
+          reply.replyUser.pic = STATIC_URL + reply.replyUser.pic + HEAD_PIC_STYLE;
           reply.subReplies = [];
           $scope.replies.push(reply);
           $scope.articleReplies += 1;
@@ -117,7 +117,7 @@ angular.module('app')
             angular.forEach(data.results, function(self) {
               var reply = {
                 replyUser: {
-                  pic: self.reply_user.pic,
+                  pic: STATIC_URL + self.reply_user.pic + HEAD_PIC_STYLE,
                   username: self.reply_user.username,
                   nickName: self.reply_user.nickname
                 },
@@ -138,12 +138,12 @@ angular.module('app')
                     angular.forEach(subData.results, function(subSelf) {
                       reply.subReplies.push({
                         replyUser: {
-                          pic: subSelf.reply_user.pic,
+                          pic: STATIC_URL + subSelf.reply_user.pic + HEAD_PIC_STYLE,
                           username: subSelf.reply_user.username,
                           nickName: subSelf.reply_user.nickname
                         },
                         replyObject: {
-                          pic: subSelf.reply_object.pic,
+                          pic: STATIC_URL + subSelf.reply_object.pic+ HEAD_PIC_STYLE,
                           username: subSelf.reply_object.username,
                           nickName: subSelf.reply_object.nickname
                         },

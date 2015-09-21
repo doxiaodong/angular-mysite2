@@ -4,6 +4,9 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
@@ -76,6 +79,25 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
 
+gulp.task('img', function () {
+  var fileFilter = $.filter(function (file) {
+    return file.stat.isFile();
+  });
+
+  return gulp.src([
+    path.join(conf.paths.src, '/assets/images/**/*')
+
+  ])
+    .pipe(fileFilter)
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()],
+      optimizationLevel: 1
+    }))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/assets/images/')))
+});
+
 gulp.task('other', function () {
   var fileFilter = $.filter(function (file) {
     return file.stat.isFile();
@@ -83,6 +105,7 @@ gulp.task('other', function () {
 
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
+    path.join('!' + conf.paths.src, '/assets/images/**/*'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,less}'),
     path.join('!' + conf.paths.src, '/**/*.{eot,svg,ttf,woff,woff2}')
   ])
@@ -94,4 +117,4 @@ gulp.task('clean', function (done) {
   $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')], done);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('build', ['html', 'fonts', 'other', 'img']);
