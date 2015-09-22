@@ -26,7 +26,7 @@ angular.module('app')
           scope.show = false;
 
           $timeout(function() {
-            $rootScope.$broadcast('languageChange');
+            $rootScope.$broadcast('languageChange', key);
           }, 30);
         };
 

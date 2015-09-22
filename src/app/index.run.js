@@ -44,4 +44,21 @@ angular.module('app')
     xdLoading.hide();
   });
 
+  $rootScope.language = $translate.storage().get() || DEFAULT_LANGUAGE;
+  switchLanguage($rootScope.language);
+
+  $rootScope.$on('languageChange', function(e, key) {
+    switchLanguage(key);
+  });
+
+  function switchLanguage(key) {
+    switch (key) {
+      case 'en_US':
+        $rootScope.language = 'en';
+        break;
+      default:
+        $rootScope.language = 'zh-cmn-Hans';
+    }
+  }
+
 });
