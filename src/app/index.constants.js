@@ -6,4 +6,4 @@ angular.module('app')
 //.constant('HOST_URL', '//api.local.darlin.me')
 .constant('STATIC_URL', '//dn-darlin.qbox.me/')
 .constant('DEFAULT_LANGUAGE', 'zh_CN')
-.constant('HEAD_PIC_STYLE', '?imageView2/1/w/100/h/100/interlace/0');
+.constant('HEAD_PIC_STYLE', '-headPicture');
