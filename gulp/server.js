@@ -33,8 +33,8 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
    */
-  server.middleware = proxyMiddleware('/api', {target: 'http://localhost:9999', proxyHost: 'http://localhost:9999'});
-  //server.middleware = proxyMiddleware('/api', {target: 'http://api.darlin.me', proxyHost: 'http://api.darlin.me'});
+  server.middleware = proxyMiddleware('/api', {target: 'http://localhost:9999'});
+  //server.middleware = proxyMiddleware('/api', {target: 'http://api.darlin.me'});
 
   browserSync.instance = browserSync.init({
     startPath: '/',

@@ -32,7 +32,7 @@ angular.module('app')
   $translateProvider.useSanitizeValueStrategy('escaped');
 
   $translateProvider.useStaticFilesLoader({
-    prefix: 'languages/',
+    prefix: 'static/languages/',
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('zh_CN');

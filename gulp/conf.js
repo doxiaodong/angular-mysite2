@@ -14,6 +14,7 @@ var gutil = require('gulp-util');
 exports.paths = {
   src: 'src',
   dist: 'dist',
+  static: 'dist/static',
   tmp: '.tmp',
   e2e: 'e2e',
   static_host: '//dn-darlin.qbox.me/'

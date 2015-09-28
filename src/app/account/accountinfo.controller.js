@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountInfoCtrl', function($window, $scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL, HEAD_PIC_STYLE) {
+  .controller('AccountInfoCtrl', function($window, $scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL_HOST, HEAD_PIC_STYLE) {
     $scope.itsMe = false;
     $scope.replies = [];
     $scope.repliesOfArticle = [];
@@ -19,7 +19,7 @@ angular.module('app')
       .success(function(data) {
         if (+data.status === 1) {
           $scope.profile = data.data.user;
-          $scope.profile.pic = STATIC_URL + data.data.user.pic + HEAD_PIC_STYLE;
+          $scope.profile.pic = STATIC_URL_HOST + data.data.user.pic + HEAD_PIC_STYLE;
           $scope.profile.lastSignin = data.data.user.last_login;
         } else {
           $state.go('home');
@@ -51,7 +51,7 @@ angular.module('app')
                   replyUser: {
                     nickName: self.reply_user.nickname,
                     username: self.reply_user.username,
-                    pic: STATIC_URL + self.reply_user.pic + HEAD_PIC_STYLE
+                    pic: STATIC_URL_HOST + self.reply_user.pic + HEAD_PIC_STYLE
                   },
                   article: self.article,
                   content: self.content,
@@ -78,7 +78,7 @@ angular.module('app')
                   replyUser: {
                     nickName: self.reply_user.nickname,
                     username: self.reply_user.username,
-                    pic: STATIC_URL + self.reply_user.pic + HEAD_PIC_STYLE
+                    pic: STATIC_URL_HOST + self.reply_user.pic + HEAD_PIC_STYLE
                   },
                   article: self.head.article,
                   content: self.content,
