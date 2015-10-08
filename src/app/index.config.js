@@ -3,13 +3,13 @@
 angular.module('app')
 .config(function(markedProvider) {
 
-  markedProvider.setOptions({
-    gfm: true,
-    tables: true,
-    highlight: function(code) {
-      return hljs.highlightAuto(code).value;
-    }
-  });
+  //markedProvider.setOptions({
+  //  gfm: true,
+  //  tables: true,
+  //  highlight: function(code) {
+  //    return hljs.highlightAuto(code).value;
+  //  }
+  //});
   markedProvider.setRenderer({
     heading: function (text, level) {
       var ele = document.createElement('a');
@@ -25,6 +25,22 @@ angular.module('app')
         + '</h'
         + level
         + '>\n';
+    },
+    code: function(text, language) {
+      var lang = '';
+      if (language) {
+        lang = ' lang-' + language;
+      }
+      var html = hljs.highlightAuto(text).value;
+      var lines = new Array(html.split(/\n/).length + 1).join('<span></span>');
+
+      return '<pre><code class="hljs'
+        + lang
+        + '"><span class="hjln">'
+        + lines
+        + '</span>'
+        + html
+        + '</code></pre>';
     }
   });
 })
