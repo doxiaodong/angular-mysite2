@@ -8,12 +8,12 @@
         <div class="form-group">
           <label for="username"></label>
           <input ng-model="signin.username" ng-pattern="usernamePattern" class="form-control" id="username" name="username" type="text" placeholder="{{ 'signModal.username' | translate }}" required>
-          <span ng-show="SIGNIN.username.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="SIGNIN.username.$valid" class="icon darlin-checkmark active"></span>
         </div>
         <div class="form-group">
           <label for="password"></label>
           <input ng-model="signin.password" ng-pattern="passwordPattern" class="form-control" id="password" name="password" type="password" placeholder="{{ 'signModal.password' | translate }}" required>
-          <span ng-show="SIGNIN.password.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="SIGNIN.password.$valid" class="icon darlin-checkmark active"></span>
         </div>
       </article>
       <footer class="xd-footer">
@@ -21,7 +21,7 @@
         <span class="a aside other-side" ng-click="signinModel = false">{{ 'signModal.register' | translate }}</span>
         <span onclick="alert('加油加油')" class="a aside">{{ 'signModal.forget' | translate }}</span>
       </footer>
-      <i class="xd-modal-close icon ion-ios-close-empty" ng-click="closeShowModal()"></i>
+      <i class="xd-modal-close icon darlin-ios-close-empty" ng-click="closeShowModal()"></i>
     </form>
 
 
@@ -32,29 +32,29 @@
         <div class="form-group">
           <label for="register_username" class="form-label">{{ 'signModal.username' | translate }}<span class="tomato">*</span>：<span class="tomato" ng-show="REGISTER.username.$dirty && REGISTER.username.$invalid">&nbsp;{{ 'signModal.usernameFlag' | translate }}</span></label>
           <input ng-model="register.username" ng-pattern="usernamePattern" class="form-control" id="register_username" name="username" type="text" placeholder="{{ 'signModal.usernameFlag' | translate }}" required>
-          <span ng-show="REGISTER.username.$dirty && REGISTER.username.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="REGISTER.username.$dirty && REGISTER.username.$valid" class="icon darlin-checkmark active"></span>
         </div>
         <div class="form-group">
           <label for="register_email" class="form-label">{{ 'signModal.email' | translate }}<span class="tomato">*</span>：<span class="tomato" ng-show="REGISTER.email.$dirty && REGISTER.email.$invalid">&nbsp;{{ 'signModal.emailFlag' | translate }}</span></label>
           <input ng-model="register.email" class="form-control" id="register_email" name="email" type="email" placeholder="{{ 'signModal.emailFlag' | translate }}" required>
-          <span ng-show="REGISTER.email.$dirty && REGISTER.email.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="REGISTER.email.$dirty && REGISTER.email.$valid" class="icon darlin-checkmark active"></span>
         </div>
         <div class="form-group">
           <label for="register_pwd" class="form-label">{{ 'signModal.password' | translate }}<span class="tomato">*</span>：<span class="tomato" ng-show="REGISTER.password.$dirty && REGISTER.password.$invalid">&nbsp;{{ 'signModal.passwordFlag' | translate }}</span></label>
           <input ng-model="register.password" ng-pattern="passwordPattern" class="form-control" id="register_pwd" name="password" type="password" placeholder="{{ 'signModal.passwordFlag' | translate }}" required>
-          <span ng-show="REGISTER.password.$dirty && REGISTER.password.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="REGISTER.password.$dirty && REGISTER.password.$valid" class="icon darlin-checkmark active"></span>
         </div>
         <div class="form-group">
           <label for="register_nickname" class="form-label">{{ 'signModal.nickName' | translate }}：<span class="tomato" ng-show="REGISTER.nickname.$dirty && REGISTER.nickname.$invalid">&nbsp;{{ 'signModal.nickNameFlag' | translate }}</span></label>
           <input ng-model="register.nickname" ng-maxlength="10" class="form-control" id="register_nickname" name="nickname" type="text" placeholder="{{ 'signModal.nickNameFlag' | translate }}">
-          <span ng-show="REGISTER.nickname.$valid" class="icon ion-checkmark active"></span>
+          <span ng-show="REGISTER.nickname.$valid" class="icon darlin-checkmark active"></span>
         </div>
       </article>
       <footer class="xd-footer">
         <button ng-disabled="REGISTER.$invalid" class="register-button main btn" type="submit">{{ 'signModal.register' | translate }}</button>
         <span class="a aside other-side" ng-click="signinModel = true">{{ 'signModal.signin' | translate }}</span>
       </footer>
-      <i class="xd-modal-close xd-close icon ion-ios-close-empty" ng-click="closeShowModal()"></i>
+      <i class="xd-modal-close xd-close icon darlin-ios-close-empty" ng-click="closeShowModal()"></i>
     </form>
   </div>
 </div>

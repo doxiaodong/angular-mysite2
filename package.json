@@ -1,6 +1,6 @@
 {
   "name": "darlin",
-  "version": "0.0.0",
+  "version": "2.1.0",
   "dependencies": {},
   "scripts": {
     "test": "gulp test"
@@ -14,6 +14,8 @@
     "gulp-csso": "~1.0.0",
     "gulp-filter": "~2.0.2",
     "gulp-flatten": "~0.0.4",
+    "gulp-iconfont": "^5.0.0",
+    "gulp-iconfont-css": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jshint": "~1.11.0",
     "gulp-load-plugins": "~0.10.0",
@@ -34,6 +36,7 @@
     "gulp-angular-filesort": "~1.1.1",
     "main-bower-files": "~2.8.0",
     "merge-stream": "~0.1.7",
+    "phantomjs": "^1.9.18",
     "jshint-stylish": "~2.0.0",
     "wiredep": "~2.2.2",
     "karma": "~0.12.36",

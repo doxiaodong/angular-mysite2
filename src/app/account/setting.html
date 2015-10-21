@@ -9,17 +9,17 @@
           <div class="form-group">
             <label class="form-label" for="setting_username">{{ 'pages.account.username' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.username.$dirty && ACCOUNT_SETTING.username.$invalid">*{{ 'signModal.usernameFlag' | translate }}</span></label>
             <input class="form-control" ng-model="setting.username" id="setting_username" name="username" ng-pattern="usernamePattern" type="text" placeholder="{{ 'pages.account.username' | translate }}" required>
-            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.username.$valid" class="icon ion-checkmark active"></span>
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.username.$valid" class="icon darlin-checkmark active"></span>
           </div>
           <div class="form-group">
             <label class="form-label" for="setting_email">{{ 'pages.account.email' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.email.$dirty && ACCOUNT_SETTING.email.$invalid">*{{ 'signModal.emailFlag' | translate }}</span></label>
             <input class="form-control" ng-model="setting.email" id="setting_email" name="email" type="email" placeholder="{{ 'pages.account.email' | translate }}" required>
-            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.email.$valid" class="icon ion-checkmark active"></span>
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.email.$valid" class="icon darlin-checkmark active"></span>
           </div>
           <div class="form-group">
             <label class="form-label" for="setting_nickname">{{ 'pages.account.nickname' | translate }}：</label>
             <input class="form-control" ng-model="setting.nickname" id="setting_nickname" name="nickname" type="text" placeholder="{{ 'pages.account.nickname' | translate }}">
-            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.nickname.$valid" class="icon ion-checkmark active"></span>
+            <span ng-show="ACCOUNT_SETTING.$dirty && ACCOUNT_SETTING.nickname.$valid" class="icon darlin-checkmark active"></span>
           </div>
           <div class="form-group" id="setting_sex">
             <label class="form-label" for="setting_sex">{{ 'pages.account.sex' | translate }}：</label>

@@ -1,0 +1,54 @@
+@version: '2.1.0';
+
+@font-face {
+  font-family: "darlin.me";
+  src: url('../fonts/darlin.me.eot?v=@{version}');
+  src: url('../fonts/darlin.me.eot?#iefix&v=@{version}') format('eot'),
+  url('../fonts/darlin.me.woff2?v=@{version}') format('woff2'),
+  url('../fonts/darlin.me.woff?v=@{version}') format('woff'),
+  url('../fonts/darlin.me.ttf?v=@{version}') format('truetype'),
+  url('../fonts/darlin.me.svg?#darlin.me&v=@{version}') format('svg');
+}
+
+.icon-base-pseudo {
+  font-family: "darlin.me";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+.icon-char(@filename) {
+  @android-delete: "\E001";
+  @checkmark: "\E002";
+  @ios-close-empty: "\E003";
+  @reply: "\E004";
+  
+  content: @@filename;
+}
+
+.icon(@filename, @insert: before) {
+  @pseudo-selector: ~":@{insert}";
+
+  &@{pseudo-selector} {
+    &:extend(.icon-base-pseudo);
+    .icon-char(@filename);
+  }
+}
+
+.icon.darlin-android-delete {
+  .icon(android-delete);
+}
+.icon.darlin-checkmark {
+  .icon(checkmark);
+}
+.icon.darlin-ios-close-empty {
+  .icon(ios-close-empty);
+}
+.icon.darlin-reply {
+  .icon(reply);
+}
