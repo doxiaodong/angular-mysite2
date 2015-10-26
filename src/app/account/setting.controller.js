@@ -41,6 +41,8 @@ angular.module('app')
         }
         $scope.requesting = false;
         xdAlert.show(data.msg);
+      }).error(function() {
+        $scope.requesting = false;
       });
     };
 

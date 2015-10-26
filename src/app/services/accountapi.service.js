@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .service('AccountApi', function($window, $rootScope, $http, $cookies, utils, localStorageService, HOST_URL) {
+  .service('AccountApi', function($window, $rootScope, $http, $cookies, md5, utils, localStorageService, HOST_URL) {
 
     this.signin = function(obj) {
       return $http({
@@ -10,7 +10,7 @@ angular.module('app')
         headers: utils.getHeader(),
         data: utils.param({
           'username': obj.username,
-          'password': obj.password
+          'password': md5.createHash(obj.password)
         })
       }).success(function(data) {
         if (+data.status === 1) {
@@ -28,7 +28,7 @@ angular.module('app')
         headers: utils.getHeader(),
         data: utils.param({
           'username': obj.username,
-          'password': obj.password,
+          'password': md5.createHash(obj.password),
           'nickname': obj.nickname,
           'email': obj.email
         })
@@ -85,6 +85,19 @@ angular.module('app')
           'X-CSRFToken': $cookies.csrftoken
         },
         data: obj.data
+      });
+    };
+
+    this.forgetPassword = function(obj) {
+      return $http({
+        method: 'POST',
+        url: HOST_URL + '/account/forget/',
+        headers: utils.getHeader(),
+        data: utils.param({
+          username: obj.username,
+          'old_password': md5.createHash(obj.oldPassword),
+          'new_password': md5.createHash(obj.newPassword)
+        })
       });
     };
 

@@ -73,6 +73,12 @@
       "save": "保存设置",
       "fold": "收起",
       "expand": "展开"
+    },
+    "forget": {
+      "title": "修改密码",
+      "oldPassword": "原始密码",
+      "newPassword": "新密码",
+      "save": "确认修改"
     }
   }
 }

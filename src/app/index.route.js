@@ -67,6 +67,15 @@ angular.module('app')
         }
       }
     })
+    .state('account.forget', {
+      url: '/forget',
+      views: {
+        'account-tab': {
+          templateUrl: 'app/account/forget.html',
+          controller: 'AccountForgetCtrl'
+        }
+      }
+    })
 
     /* fourth-tab */
     .state('fourth', {
