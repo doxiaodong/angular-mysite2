@@ -41,11 +41,14 @@ gulp.task('html', ['inject', 'partials'], function () {
   var cssFilter = $.filter('**/*.css');
   var assets;
 
+  var chinese2unicode = require('fd-gulp-chinese2unicode');
+
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
+    .pipe(chinese2unicode())
     .pipe($.ngAnnotate())
     .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
     .pipe(jsFilter.restore())
@@ -126,6 +129,7 @@ gulp.task('other', function () {
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
     path.join('!' + conf.paths.src, '/assets/images/**/*'),
+    path.join('!' + conf.paths.src, '/languages/**/*.json'),
     path.join('!' + conf.paths.src, '/favicon.ico'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,less}'),
     path.join('!' + conf.paths.src, '/**/*.{eot,svg,ttf,woff,woff2}')
@@ -138,4 +142,4 @@ gulp.task('clean', function (done) {
   $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')], done);
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'img', 'favicon']);
+gulp.task('build', ['html', 'fonts', 'other', 'img', 'favicon', 'language']);
