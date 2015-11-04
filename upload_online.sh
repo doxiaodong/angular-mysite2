@@ -1,1 +1,1 @@
-scp -r dist/ login@darlin.me:~/angular-mysite2
+scp -r dist/ root@darlin.me:/var/www/angular-mysite2
