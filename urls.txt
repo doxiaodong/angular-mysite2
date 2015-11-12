@@ -24,8 +24,12 @@ https://darlin.me/article/c/zcd
 https://darlin.me/article/angularjs/highchart
 https://darlin.me/article/angularjs/angular2_hello_darlin
 https://darlin.me/article/nginx/nginx_ng_html5mode
-
 https://darlin.me/article/front/introduce_dxd
+https://darlin.me/article/front/css_unit
+https://darlin.me/article/nginx/gzip
+https://darlin.me/article/front/pie
+https://darlin.me/article/aijl/parallels
+
 https://darlin.me/article/poetry/look_west
 https://darlin.me/article/poetry/look_snow
 https://darlin.me/article/poetry/lzhighschool

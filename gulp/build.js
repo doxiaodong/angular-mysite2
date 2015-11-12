@@ -108,8 +108,9 @@ gulp.task('favicon', function () {
   });
 
   return gulp.src([
-    path.join(conf.paths.src, '/favicon.ico')
-
+    path.join(conf.paths.src, '/favicon.ico'),
+    path.join(conf.paths.src, '/robots.txt'),
+    path.join(conf.paths.src, '/sitemap.xml')
   ])
     .pipe(fileFilter)
     .pipe(imagemin({
@@ -131,6 +132,8 @@ gulp.task('other', function () {
     path.join('!' + conf.paths.src, '/assets/images/**/*'),
     path.join('!' + conf.paths.src, '/languages/**/*.json'),
     path.join('!' + conf.paths.src, '/favicon.ico'),
+    path.join('!' + conf.paths.src, '/robots.txt'),
+    path.join('!' + conf.paths.src, '/sitemap.xml'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,less}'),
     path.join('!' + conf.paths.src, '/**/*.{eot,svg,ttf,woff,woff2}')
   ])
