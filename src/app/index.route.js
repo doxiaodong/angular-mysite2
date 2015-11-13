@@ -67,12 +67,21 @@ angular.module('app')
         }
       }
     })
-    .state('account.forget', {
-      url: '/forget',
+    .state('account.change', {
+      url: '/changePassword',
       views: {
         'account-tab': {
-          templateUrl: 'app/account/forget.html',
-          controller: 'AccountForgetCtrl'
+          templateUrl: 'app/account/change.html',
+          controller: 'AccountChangeCtrl'
+        }
+      }
+    })
+    .state('account.reset', {
+      url: '/resetPassword',
+      views: {
+        'account-tab': {
+          templateUrl: 'app/account/reset.html',
+          controller: 'AccountResetCtrl'
         }
       }
     })

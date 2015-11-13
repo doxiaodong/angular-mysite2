@@ -7,17 +7,17 @@
       <form class="form" name="ACCOUNT_FORGET" ng-submit="submit()">
         <article class="xd-article">
           <div class="form-group">
-            <label class="form-label" for="forget_username">{{ 'pages.account.username' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.username.$dirty && ACCOUNT_SETTING.username.$invalid">*{{ 'signModal.usernameFlag' | translate }}</span></label>
+            <label class="form-label" for="forget_username">{{ 'pages.account.username' | translate }}：<span class="tomato" ng-show="ACCOUNT_FORGET.username.$dirty && ACCOUNT_FORGET.username.$invalid">*{{ 'signModal.usernameFlag' | translate }}</span></label>
             <input class="form-control" ng-model="data.username" id="forget_username" name="username" ng-pattern="usernamePattern" type="text" placeholder="{{ 'pages.account.username' | translate }}" required>
             <span ng-show="ACCOUNT_FORGET.$dirty && ACCOUNT_FORGET.username.$valid" class="icon darlin-checkmark active"></span>
           </div>
           <div class="form-group">
-            <label class="form-label" for="forget_oldPassword">{{ 'pages.forget.oldPassword' | translate }}：<span class="tomato" ng-show="ACCOUNT_SETTING.email.$dirty && ACCOUNT_SETTING.email.$invalid">*{{ 'signModal.passwordFlag' | translate }}</span></label>
+            <label class="form-label" for="forget_oldPassword">{{ 'pages.forget.oldPassword' | translate }}：<span class="tomato" ng-show="ACCOUNT_FORGET.oldPassword.$dirty && ACCOUNT_FORGET.oldPassword.$invalid">*{{ 'signModal.passwordFlag' | translate }}</span></label>
             <input class="form-control" ng-model="data.oldPassword" id="forget_oldPassword" ng-pattern="passwordPattern" name="oldPassword" type="password" placeholder="{{ 'pages.forget.oldPassword' | translate }}" required>
             <span ng-show="ACCOUNT_FORGET.$dirty && ACCOUNT_FORGET.oldPassword.$valid" class="icon darlin-checkmark active"></span>
           </div>
           <div class="form-group">
-            <label class="form-label" for="forget_newPassword">{{ 'pages.forget.newPassword' | translate }}：</label>
+            <label class="form-label" for="forget_newPassword">{{ 'pages.forget.newPassword' | translate }}：<span class="tomato" ng-show="ACCOUNT_FORGET.newPassword.$dirty && ACCOUNT_FORGET.newPassword.$invalid">*{{ 'signModal.passwordFlag' | translate }}</span></label>
             <input class="form-control" ng-model="data.newPassword" id="forget_newPassword" ng-pattern="passwordPattern" name="newPassword" type="password" placeholder="{{ 'pages.forget.newPassword' | translate }}" required>
             <span ng-show="ACCOUNT_FORGET.$dirty && ACCOUNT_FORGET.newPassword.$valid" class="icon darlin-checkmark active"></span>
           </div>

@@ -79,6 +79,11 @@
       "oldPassword": "Old Password",
       "newPassword": "New Password",
       "save": "Save"
+    },
+    "reset": {
+      "title": "Reset Password",
+      "newPassword": "New Password",
+      "save": "Save"
     }
   }
 }

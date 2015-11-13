@@ -1,0 +1,28 @@
+<div class="pages setting" xd-title="{{ 'pages.reset.title' | translate }}">
+  <div class="page-block">
+    <div class="each-header">
+      <span class="big-size">{{ 'pages.reset.title' | translate }}</span>
+    </div>
+    <div class="each-inner">
+      <form class="form" name="ACCOUNT_RESET" ng-submit="submit()">
+        <article class="xd-article">
+          <div class="form-group">
+            <label class="form-label" for="forget_username">{{ 'pages.account.username' | translate }}：<span class="tomato" ng-show="ACCOUNT_RESET.username.$dirty && ACCOUNT_RESET.username.$invalid">*{{ 'signModal.usernameFlag' | translate }}</span></label>
+            <input class="form-control" ng-model="data.username" id="forget_username" name="username" ng-pattern="usernamePattern" type="text" placeholder="{{ 'pages.account.username' | translate }}" required>
+            <span ng-show="ACCOUNT_RESET.$dirty && ACCOUNT_RESET.username.$valid" class="icon darlin-checkmark active"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="forget_newPassword">{{ 'pages.forget.newPassword' | translate }}：</label>
+            <input class="form-control" ng-model="data.newPassword" id="forget_newPassword" ng-pattern="passwordPattern" name="newPassword" type="password" placeholder="{{ 'pages.forget.newPassword' | translate }}" required>
+            <span ng-show="ACCOUNT_RESET.$dirty && ACCOUNT_RESET.newPassword.$valid" class="icon darlin-checkmark active"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label width-0"></label>
+            <button ng-disabled="!ACCOUNT_RESET.$dirty || ACCOUNT_RESET.$invalid || requesting" class="main btn" type="submit">{{ 'pages.reset.save' | translate }}</button>
+          </div>
+        </article>
+      </form>
+    </div>
+  </div>
+</div>

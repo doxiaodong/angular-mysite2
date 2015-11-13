@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .service('AccountApi', function($window, $rootScope, $http, $cookies, md5, utils, localStorageService, HOST_URL) {
+  .service('AccountApi', function($http, $cookies, md5, utils, localStorageService, HOST_URL, UserService) {
 
     this.signin = function(obj) {
       return $http({
@@ -14,8 +14,8 @@ angular.module('app')
         })
       }).success(function(data) {
         if (+data.status === 1) {
-          $window.user = data.data.user;
-          $rootScope.$broadcast('get_user_info', data.data.user);
+          UserService.save(data.data.user);
+          //$rootScope.$broadcast('get_user_info', data.data.user);
           localStorageService.add('user', {username: obj.username, password: obj.password});
         }
       });
@@ -34,8 +34,8 @@ angular.module('app')
         })
       }).success(function(data) {
         if (+data.status === 1) {
-          $window.user = data.data.user;
-          $rootScope.$broadcast('get_user_info', data.data.user);
+          UserService.save(data.data.user);
+          //$rootScope.$broadcast('get_user_info', data.data.user);
           localStorageService.add('user', {username: obj.username, password: obj.password});
         }
       });
@@ -48,8 +48,8 @@ angular.module('app')
         headers: utils.getHeader()
       }).success(function(data) {
         if (+data.status === 1) {
-          $window.user = '';
-          $rootScope.$broadcast('account.signout');
+          UserService.save('');
+          //$rootScope.$broadcast('account.signout');
         }
       });
     };
@@ -88,14 +88,26 @@ angular.module('app')
       });
     };
 
-    this.forgetPassword = function(obj) {
+    this.changePassword = function(obj) {
       return $http({
         method: 'POST',
-        url: HOST_URL + '/account/forget/',
+        url: HOST_URL + '/account/change/',
         headers: utils.getHeader(),
         data: utils.param({
           username: obj.username,
           'old_password': md5.createHash(obj.oldPassword),
+          'new_password': md5.createHash(obj.newPassword)
+        })
+      });
+    };
+
+    this.resetPassword = function(obj) {
+      return $http({
+        method: 'POST',
+        url: HOST_URL + '/account/reset/',
+        headers: utils.getHeader(),
+        data: utils.param({
+          username: obj.username,
           'new_password': md5.createHash(obj.newPassword)
         })
       });

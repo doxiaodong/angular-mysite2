@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .service('CommonApi', function($window, $rootScope, $http, $cookies, utils, HOST_URL) {
+  .service('CommonApi', function($rootScope, $http, $cookies, utils, HOST_URL, UserService) {
     var header = {'Content-Type': 'application/x-www-form-urlencoded'};
 
     this.initHomePage = function() {
@@ -12,9 +12,7 @@ angular.module('app')
       }).success(function(data, status, headers) {
         if (+data.status === 1) {
           if (data.data.user) {
-            $window.user = data.data.user;
-            //console.log($window.user, 1)
-            $rootScope.$broadcast('get_user_info', data.data.user);
+            UserService.save(data.data.user);
           } else {
             $rootScope.$broadcast('get_no_user_info');
           }

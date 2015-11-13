@@ -79,6 +79,11 @@
       "oldPassword": "原始密码",
       "newPassword": "新密码",
       "save": "确认修改"
+    },
+    "reset": {
+      "title": "重置密码",
+      "newPassword": "新密码",
+      "save": "确认重置"
     }
   }
 }

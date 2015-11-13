@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountInfoCtrl', function($window, $scope, $rootScope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL_HOST, HEAD_PIC_STYLE) {
+  .controller('AccountInfoCtrl', function($scope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL_HOST, HEAD_PIC_STYLE, UserService) {
     $scope.itsMe = false;
     $scope.replies = [];
     $scope.repliesOfArticle = [];
@@ -9,7 +9,7 @@ angular.module('app')
     $scope.replyContainerFold = false;
     $scope.commentContainerFold = false;
 
-    $rootScope.$on('account.signout', function() {
+    $scope.$on('account.signout', function() {
       $scope.itsMe = false;
     });
 
@@ -27,12 +27,12 @@ angular.module('app')
       })
     ;
 
-    if ($window.user) {
-      $scope.itsMe = utils.itsMe($window.user.username, $stateParams.user);
-      getReplies($window.user.username);
-      getRepliesOfArticle($window.user);
+    if (UserService.get()) {
+      $scope.itsMe = utils.itsMe(UserService.get().username, $stateParams.user);
+      getReplies(UserService.get().username);
+      getRepliesOfArticle(UserService.get());
     }
-    $rootScope.$on('get_user_info', function(e, data) {
+    $scope.$on('get_user_info', function(e, data) {
       $scope.replies = [];
       $scope.repliesOfArticle = [];
       $scope.itsMe = utils.itsMe(data.username, $stateParams.user);

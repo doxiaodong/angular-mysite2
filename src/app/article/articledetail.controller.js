@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('ArticleDetailCtrl', function($scope, $rootScope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert) {
+  .controller('ArticleDetailCtrl', function($scope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert) {
     $scope.requesting = false;
     ArticleApi.getArticleDetail($stateParams.url)
       .success(function(data) {

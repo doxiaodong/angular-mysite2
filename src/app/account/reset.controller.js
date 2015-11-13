@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountForgetCtrl', function($scope, AccountApi, xdAlert, utils) {
+  .controller('AccountResetCtrl', function($scope, AccountApi, xdAlert, utils) {
 
     $scope.requesting = false;
     $scope.data = {};
@@ -10,7 +10,7 @@ angular.module('app')
 
     $scope.submit = function() {
       $scope.requesting = true;
-      AccountApi.forgetPassword($scope.data).success(function(data) {
+      AccountApi.resetPassword($scope.data).success(function(data) {
         $scope.requesting = false;
         xdAlert.show(data.msg);
       }).error(function() {

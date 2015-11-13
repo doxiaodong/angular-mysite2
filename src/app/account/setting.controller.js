@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountSettingCtrl', function($scope, $rootScope, $window, $state, utils, AccountApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert) {
+  .controller('AccountSettingCtrl', function($scope, $window, $state, utils, AccountApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert, UserService) {
     $scope.requesting = false;
     $scope.dirty = false;
     $scope.usernamePattern = utils.usernamePattern;
@@ -12,9 +12,9 @@ angular.module('app')
       $scope.dirty = true;
       $scope.$apply();
     };
-    if ($window.user) {
-      //console.log($window.user, 2)
-      getUser($window.user);
+    if (UserService.get()) {
+      //console.log(UserService.get(), 2)
+      getUser(UserService.get());
     }
 
     $scope.$on('get_user_info', function (e, data) {
