@@ -1,0 +1,16 @@
+[ui-view] {
+  position: relative;
+  .perspective(500);
+  //&.ng-leave,
+  &.ng-enter {
+    .transition(1s);
+  }
+  &.ng-enter {
+    .transform-translate3d(0, 100px, 0);
+    opacity: 0;
+    &.ng-enter-active {
+      .transform-translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
