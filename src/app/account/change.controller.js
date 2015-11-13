@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountChangeCtrl', function($scope, AccountApi, xdAlert, utils) {
+  .controller('AccountChangeCtrl', function($scope, $state, AccountApi, xdAlert, utils) {
 
     $scope.requesting = false;
     $scope.data = {};
@@ -17,5 +17,13 @@ angular.module('app')
         $scope.requesting = false;
       });
     };
+
+    $scope.$on('account.signout', function() {
+      $state.go('home');
+    });
+
+    $scope.$on('get_no_user_info', function() {
+      $state.go('home');
+    });
   })
 ;

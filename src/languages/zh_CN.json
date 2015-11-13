@@ -72,7 +72,8 @@
       "pic": "头像",
       "save": "保存设置",
       "fold": "收起",
-      "expand": "展开"
+      "expand": "展开",
+      "changePassword": "修改密码"
     },
     "forget": {
       "title": "修改密码",

@@ -72,7 +72,8 @@
       "pic": "Picture",
       "save": "Save",
       "fold": "Fold",
-      "expand": "Expand"
+      "expand": "Expand",
+      "changePassword": "Change Password"
     },
     "forget": {
       "title": "Change Password",
