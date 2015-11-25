@@ -34,7 +34,7 @@
               <div>
                 <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
                 <span class="normal-color">{{ 'pages.account.replyWord1' | translate }}</span>
-                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: reply.article.url})">{{ reply.article.title }}</a>
+                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>
                 {{ 'pages.account.replyWord2' | translate }}：
               </div>
               <div class="mes markdown" marked="reply.content"></div>
@@ -65,7 +65,7 @@
               <div>
                 <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
                 <span class="normal-color">{{ 'pages.account.replyOfArticleWord' | translate }}</span>
-                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: reply.article.url})">{{ reply.article.title }}</a>：
+                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>：
               </div>
               <div class="mes markdown" marked="reply.content"></div>
             </div>

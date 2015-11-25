@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('app')
-	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi) {
+	.controller('ArticleListCtrl', function($scope, $window, $stateParams, ArticleApi, urlSafeBase64Util) {
+    $scope.encode = urlSafeBase64Util.encode;
     var categories = JSON.parse($window.sessionStorage.getItem('categories'));
     if (!categories) {
       ArticleApi.getArticleCategories()

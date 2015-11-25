@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('app')
-  .controller('ArticleDetailCtrl', function($scope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert) {
+  .controller('ArticleDetailCtrl', function($scope, $window, $document, $stateParams, $timeout, ArticleApi, CommentApi, STATIC_URL_HOST, HEAD_PIC_STYLE, xdAlert, urlSafeBase64Util) {
     $scope.requesting = false;
-    ArticleApi.getArticleDetail($stateParams.url)
+    var paramUrl = urlSafeBase64Util.decode($stateParams.url);
+    ArticleApi.getArticleDetail(paramUrl)
       .success(function(data) {
         $scope.article = {
           articleDetailTitle: data.title,
@@ -46,7 +47,7 @@ angular.module('app')
     };
     $scope.commentSubmit = function(content) {
       $scope.requesting = true;
-      var article = $stateParams.url;
+      var article = paramUrl;
       CommentApi.addArticleReply({
         article: article,
         content: content
@@ -110,7 +111,7 @@ angular.module('app')
     updateComments();
 
     function updateComments() {
-      ArticleApi.getComments($stateParams.url)
+      ArticleApi.getComments(paramUrl)
         .success(function(data) {
           $scope.replies = [];
           if (data.results) {

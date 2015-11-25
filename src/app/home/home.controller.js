@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('app')
-	.controller('HomeCtrl', function($scope, ArticleApi) {
+	.controller('HomeCtrl', function($scope, ArticleApi, urlSafeBase64Util) {
+    $scope.encode = urlSafeBase64Util.encode;
     $scope.pagePrev = '';
     $scope.pageNext = '';
     $scope.prevPage = function() {

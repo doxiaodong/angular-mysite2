@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('app')
-  .controller('AccountInfoCtrl', function($scope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL_HOST, HEAD_PIC_STYLE, UserService) {
+  .controller('AccountInfoCtrl', function($scope, $state, $stateParams, utils, AccountApi, ArticleApi, STATIC_URL_HOST, HEAD_PIC_STYLE, UserService, urlSafeBase64Util) {
+    $scope.encode = urlSafeBase64Util.encode;
+
     $scope.itsMe = false;
     $scope.replies = [];
     $scope.repliesOfArticle = [];
