@@ -1,187 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://darlin.me</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/account/info</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/aijl</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/all</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/angularjs</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/c</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/js_thirds</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/nginx</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poyi</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/web_settings</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/self/waiting</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/account/info/duxiaodong</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/account/info/jianlin</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/aijl/parallels</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/angularjs/angular2_hello_darlin</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/angularjs/angularjs_step</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/angularjs/highchart</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/c/typedef</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/c/zcd</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/css_unit</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/frameanimate</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/introduce_dxd</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/pattern</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/pie</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/front/weinre</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/js_thirds/jqvalidate</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/js_thirds/zeroclipboard</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/nginx/gzip</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/nginx/nginx_ng_html5mode</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/nginx/nginx_websocket</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/byebye</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/dangdangdang</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/longlonglong</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/look_snow</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/look_west</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/luzhou</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/lzhighschool</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/mingyuelou</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/recall_zs</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poetry/yuanxiao</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poyi/banliao</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poyi/hosts</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/poyi/shortcuts</loc>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://darlin.me/article/web_settings/startssl</loc>
-    <priority>0.2</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url><loc>https://darlin.me/</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>1.00</priority></url>
+<url><loc>https://darlin.me/article/all</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/account/info/</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/self/waiting</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/aijl/cGFyYWxsZWxz</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/front/cGll</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/nginx/Z3ppcA%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/front/Y3NzX3VuaXQ%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/front/aW50cm9kdWNlX2R4ZA%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/angularjs/YW5ndWxhcmpzX3N0ZXA%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/poetry/bG9va193ZXN0</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/poetry/bHV6aG91</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/front/ZnJhbWVhbmltYXRl</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/front/d2VpbnJl</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/poyi/aG9zdHM%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/poyi/YmFubGlhbw%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+<url><loc>https://darlin.me/article/aijl</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/nginx</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/web_settings</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/js_thirds</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/c</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poyi</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/front</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/angularjs</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/front/cGF0dGVybg%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/bG9va19zbm93</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/bHpoaWdoc2Nob29s</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/ZGFuZ2RhbmdkYW5n</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/cmVjYWxsX3pz</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/eXVhbnhpYW8%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/YnllYnll</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/bWluZ3l1ZWxvdQ%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poetry/bG9uZ2xvbmdsb25n</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/nginx/bmdpbnhfbmdfaHRtbDVtb2Rl</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/angularjs/YW5ndWxhcjJfaGVsbG9fZGFybGlu</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/angularjs/aGlnaGNoYXJ0</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/c/emNk</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/nginx/bmdpbnhfd2Vic29ja2V0</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/c/dHlwZWRlZg%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/poyi/c2hvcnRjdXRz</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/web_settings/c3RhcnRzc2w%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/js_thirds/emVyb2NsaXBib2FyZA%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/article/js_thirds/anF2YWxpZGF0ZQ%3D%3D</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/account/info/duxiaodong</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<url><loc>https://darlin.me/account/info/jianlin</loc><lastmod>2015-11-25T01:59:02+00:00</lastmod><changefreq>monthly</changefreq><priority>0.69</priority></url>
+<!-- Generated by www.web-site-map.com -->
 </urlset>

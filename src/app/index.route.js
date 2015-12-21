@@ -7,7 +7,7 @@ angular.module('app')
     .state('home', {
       url: '/',
       views: {
-        'home-tab': {
+        'home-tab@': {
           templateUrl: 'app/home/home.html',
           controller: 'HomeCtrl'
         }
@@ -15,17 +15,13 @@ angular.module('app')
     })
     /* article-tab */
     .state('article', {
-      url: '/article',
-      views: {
-        'article-tab': {
-          template: '<div ui-view="article-tab"></div>'
-        }
-      }
+      abstract: true,
+      url: '/article'
     })
     .state('article.articles', {
       url: '/:category',
       views: {
-        'article-tab': {
+        'article-tab@': {
           templateUrl: 'app/article/article-list.html',
           controller: 'ArticleListCtrl'
         }
@@ -34,7 +30,7 @@ angular.module('app')
     .state('article.article', {
       url: '/:category/:url',
       views: {
-        'article-tab': {
+        'article-tab@': {
           templateUrl: 'app/article/article-detail.html',
           controller: 'ArticleDetailCtrl'
         }
@@ -42,17 +38,13 @@ angular.module('app')
     })
     /* account-tab */
     .state('account', {
-      url: '/account',
-      views: {
-        'account-tab': {
-          template: '<div ui-view="account-tab"></div>'
-        }
-      }
+      abstract: true,
+      url: '/account'
     })
     .state('account.setting', {
       url: '/setting',
       views: {
-        'account-tab': {
+        'account-tab@': {
           templateUrl: 'app/account/setting.html',
           controller: 'AccountSettingCtrl'
         }
@@ -61,7 +53,7 @@ angular.module('app')
     .state('account.info', {
       url: '/info/:user',
       views: {
-        'account-tab': {
+        'account-tab@': {
           templateUrl: 'app/account/account-info.html',
           controller: 'AccountInfoCtrl'
         }
@@ -70,7 +62,7 @@ angular.module('app')
     .state('account.change', {
       url: '/changePassword',
       views: {
-        'account-tab': {
+        'account-tab@': {
           templateUrl: 'app/account/change.html',
           controller: 'AccountChangeCtrl'
         }
@@ -79,7 +71,7 @@ angular.module('app')
     .state('account.reset', {
       url: '/resetPassword',
       views: {
-        'account-tab': {
+        'account-tab@': {
           templateUrl: 'app/account/reset.html',
           controller: 'AccountResetCtrl'
         }
@@ -88,17 +80,13 @@ angular.module('app')
 
     /* fourth-tab */
     .state('fourth', {
-      url: '/self',
-      views: {
-        'fourth-tab': {
-          template: '<div ui-view="fourth-tab"></div>'
-        }
-      }
+      abstract: true,
+      url: '/self'
     })
     .state('fourth.index', {
       url: '/waiting',
       views: {
-        'fourth-tab': {
+        'fourth-tab@': {
           templateUrl: 'app/fourth/fourth.html',
           controller: 'FourthIndexCtrl'
         }
