@@ -25,10 +25,12 @@
           <input type="text" class="form-control" ng-model="searchText.title" placeholder="{{ 'search' | translate }}">
         </li>
         <li class="article article-list-repeat" ng-repeat="article in articles | filter: searchText">
-          <div class="title">
-            <a class="a" ui-sref="article.article({category: article.category, url: encode(article.url)})">{{ article.title }}</a>
-          </div>
-          <div class="time">{{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+          <a class="a" ui-sref="article.article({category: article.category, url: encode(article.url)})">
+            <div class="title">
+            {{ article.title }}
+            </div>
+            <div class="time">{{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+          </a>
         </li>
         <li class="article" ng-if="!articles.length">{{ 'pages.article.none' | translate }}</li>
       </ul>

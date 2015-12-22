@@ -73,7 +73,8 @@
       "save": "Save",
       "fold": "Fold",
       "expand": "Expand",
-      "changePassword": "Change Password"
+      "changePassword": "Change Password",
+      "signout": "Signout"
     },
     "forget": {
       "title": "Change Password",

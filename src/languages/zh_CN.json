@@ -73,7 +73,8 @@
       "save": "保存设置",
       "fold": "收起",
       "expand": "展开",
-      "changePassword": "修改密码"
+      "changePassword": "修改密码",
+      "signout": "退出登录"
     },
     "forget": {
       "title": "修改密码",

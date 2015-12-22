@@ -14,6 +14,9 @@
       <div class="sex">{{ profile.sex.word }}</div>
       <div class="email line">{{ 'pages.account.email' | translate }}：<a href="mailto:{{ profile.email }}">{{ profile.email }}</a></div>
       <div class="last-login line">{{ 'pages.account.lastSignin' | translate }}：{{ profile.lastSignin | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+      <div ng-if="itsMe" class="line">
+        <button ng-click="signout()" class="main btn">{{ 'pages.account.signout' | translate }}</button>
+      </div>
     </div>
   </div>
 

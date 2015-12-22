@@ -41,7 +41,13 @@ angular.module('app')
       getReplies(data.username);
       getRepliesOfArticle(data);
     });
-
+    
+    $scope.signout = function() {
+      AccountApi.signout()
+        .success(function(data) {
+        })
+      ;
+    };
 
     function getRepliesOfArticle(user) {
       if (+user.id === 1 || +user.id === 2) {
