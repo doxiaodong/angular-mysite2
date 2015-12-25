@@ -5,6 +5,8 @@
     color: #c5c8c6;
     padding: 0.5em;
     white-space: nowrap;
+    max-width: 95%;
+    overflow: auto;
   }
   blockquote {
     padding: 10px 15px;
@@ -24,6 +26,7 @@
     padding: 0.5em;
     -webkit-text-size-adjust: none;
     white-space: pre;
+    max-width: initial;
   }
   h1, h2, h3, h4, h5, h6 {
     margin-top: -@header_height!important;
@@ -32,7 +35,7 @@
 }
 
 .standalone {
-  @header_height: 70px;
+  @header_height: 80px;
   & {
     .hljs {
       h1, h2, h3, h4, h5, h6 {
