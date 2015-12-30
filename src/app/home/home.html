@@ -6,7 +6,7 @@
     <div class="each-inner">
       <ul class="articles">
         <li class="article" ng-repeat="article in articles">
-          <a class="a" ui-sref="article.article({category: article.category, url: encode(article.url)})">
+          <a class="a" ui-sref="views.article.article({category: article.category, url: encode(article.url)})">
             <div class="title">
               {{ article.title }}
             </div>

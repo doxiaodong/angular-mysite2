@@ -22,11 +22,11 @@ angular.module('app')
     });
 
     $scope.$on('account.signout', function() {
-      $state.go('home');
+      $state.go('views.home');
     });
 
     $scope.$on('get_no_user_info', function() {
-      $state.go('home');
+      $state.go('views.home');
     });
 
     $scope.submit = function() {

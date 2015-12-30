@@ -7,7 +7,7 @@
       <div class="each-inner">
         <ul class="side-list clearfix">
           <li class="nowrap" ng-repeat="category in categories">
-            <a class="a type" ng-class="{ 'active': articleList.category === category.key }" ui-sref="article.articles({category: category.key})">{{ category.name }}</a>
+            <a class="a type" ng-class="{ 'active': articleList.category === category.key }" ui-sref="views.article.articles({category: category.key})">{{ category.name }}</a>
           </li>
         </ul>
       </div>
@@ -25,7 +25,7 @@
           <input type="text" class="form-control" ng-model="searchText.title" placeholder="{{ 'search' | translate }}">
         </li>
         <li class="article article-list-repeat" ng-repeat="article in articles | filter: searchText">
-          <a class="a" ui-sref="article.article({category: article.category, url: encode(article.url)})">
+          <a class="a" ui-sref="views.article.article({category: article.category, url: encode(article.url)})">
             <div class="title">
             {{ article.title }}
             </div>

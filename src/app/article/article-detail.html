@@ -7,7 +7,7 @@
       <div class="each-inner">
         <ul class="side-list clearfix">
           <li class="nowrap" ng-repeat="category in categories">
-            <a class="a type" ng-class="{ 'active': article.category.key === category.key }" ui-sref="article.articles({category: category.key})">{{ category.name }}</a>
+            <a class="a type" ng-class="{ 'active': article.category.key === category.key }" ui-sref="views.article.articles({category: category.key})">{{ category.name }}</a>
           </li>
         </ul>
       </div>
@@ -33,10 +33,10 @@
     <div class="each-inner">
       <ul class="replies">
         <li class="each-reply root-reply" ng-repeat="reply in replies">
-          <img class="pic left" ui-sref="account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
+          <img class="pic left" ui-sref="views.account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
           <div class="right">
             <div class="word">
-              <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
+              <a class="a" ui-sref="views.account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
               <div class="mes markdown" marked="reply.content"></div>
             </div>
             <div class="message">
@@ -48,13 +48,13 @@
           </div>
           <ul class="sub-reply">
             <li class="each-reply" ng-repeat="subReply in reply.subReplies">
-              <img class="pic left" ui-sref="account.info({user: subReply.replyUser.username})" ng-src="{{ subReply.replyUser.pic }}" alt="">
+              <img class="pic left" ui-sref="views.account.info({user: subReply.replyUser.username})" ng-src="{{ subReply.replyUser.pic }}" alt="">
               <div class="right">
                 <div class="word">
                   <div>
-                    <a class="a" ui-sref="account.info({user: subReply.replyUser.username})">{{ subReply.replyUser.nickName }}</a>
+                    <a class="a" ui-sref="views.account.info({user: subReply.replyUser.username})">{{ subReply.replyUser.nickName }}</a>
                     <span class="nomal-color">&nbsp;{{ 'pages.article.lowercaseReply' | translate }}&nbsp;</span>
-                    <a class="a" ui-sref="account.info({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</a>：
+                    <a class="a" ui-sref="views.account.info({user: subReply.replyObject.username})">{{ subReply.replyObject.nickName }}</a>：
                   </div>
                   <div class="mes markdown" marked="subReply.content"></div>
                 </div>
@@ -69,7 +69,7 @@
             <li class="reply-floor show" ng-show="reply.input.show">
               <form class="form" name="REPLY_COMMENT" ng-submit="replySubmit(reply.input.object, submitForm.replyContent, reply.url, reply.index)">
                 <div class="form-group clearfix">
-                  <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<a class="a" ui-sref="account.info({user: reply.input.object})">{{ reply.input.nickName }}</a>：</span>
+                  <span>{{ 'pages.article.replyPlaceholder' | translate }}&nbsp;<a class="a" ui-sref="views.account.info({user: reply.input.object})">{{ reply.input.nickName }}</a>：</span>
                   <textarea ng-model="submitForm.replyContent" auto-focus="reply.input.show" class="form-control reply-textarea" placeholder="{{ 'pages.article.commentPlaceholder' | translate }}" required></textarea>
                   <!--<div contenteditable="true" strip-br auto-focus="reply.input.show" ng-model="submitForm.replyContent" class="form-control reply-textarea"></div>-->
                   <button ng-disabled="!REPLY_COMMENT.$valid || requesting" class="btn reply-button" type="submit">{{ 'pages.article.reply' | translate }}</button>

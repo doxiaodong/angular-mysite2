@@ -24,7 +24,7 @@ angular.module('app')
           $scope.profile.pic = STATIC_URL_HOST + data.data.user.pic + HEAD_PIC_STYLE;
           $scope.profile.lastSignin = data.data.user.last_login;
         } else {
-          $state.go('home');
+          $state.go('views.home');
         }
       })
     ;

@@ -2,7 +2,7 @@
   <div class="page-block">
     <div class="each-header">
       <span class="big-size">{{ 'pages.account.profile' | translate }}</span>
-      <a ng-if="itsMe" class="a pull-right" ui-sref="account.setting">{{ 'pages.account.change' | translate }}</a>
+      <a ng-if="itsMe" class="a pull-right" ui-sref="views.account.setting">{{ 'pages.account.change' | translate }}</a>
     </div>
     <div class="each-inner">
       <div class="head clearfix">
@@ -31,13 +31,13 @@
     <div class="each-inner" ng-if="!replyContainerFold">
       <ul class="replies">
         <li class="each-reply" ng-repeat="reply in replies">
-          <img class="pic left" ui-sref="account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
+          <img class="pic left" ui-sref="views.account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
           <div class="right">
             <div class="word">
               <div>
-                <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
+                <a class="a" ui-sref="views.account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
                 <span class="normal-color">{{ 'pages.account.replyWord1' | translate }}</span>
-                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>
+                <a class="a" ui-sref="views.article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>
                 {{ 'pages.account.replyWord2' | translate }}：
               </div>
               <div class="mes markdown" marked="reply.content"></div>
@@ -62,13 +62,13 @@
     <div class="each-inner" ng-if="!commentContainerFold">
       <ul class="replies">
         <li class="each-reply" ng-repeat="reply in repliesOfArticle">
-          <img class="pic left" ui-sref="account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
+          <img class="pic left" ui-sref="views.account.info({user: reply.replyUser.username})" ng-src="{{ reply.replyUser.pic }}" alt="">
           <div class="right">
             <div class="word">
               <div>
-                <a class="a" ui-sref="account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
+                <a class="a" ui-sref="views.account.info({user: reply.replyUser.username})">{{ reply.replyUser.nickName }}</a>
                 <span class="normal-color">{{ 'pages.account.replyOfArticleWord' | translate }}</span>
-                <a class="a" ui-sref="article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>：
+                <a class="a" ui-sref="views.article.article({category: reply.article.category.url, url: encode(reply.article.url)})">{{ reply.article.title }}</a>：
               </div>
               <div class="mes markdown" marked="reply.content"></div>
             </div>

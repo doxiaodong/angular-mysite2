@@ -25,16 +25,16 @@ angular.module('app')
     };
 
     $scope.$on('$stateChangeSuccess', function() {
-      if ($state.includes('home')) {
+      if ($state.includes('views.home')) {
         $scope.index = 0;
       }
-      if ($state.includes('article')) {
+      if ($state.includes('views.article')) {
         $scope.index = 1;
       }
-      if ($state.includes('account')) {
+      if ($state.includes('views.account')) {
         $scope.index = 2;
       }
-      if ($state.includes('fourth')) {
+      if ($state.includes('views.fourth')) {
         $scope.index = 3;
       }
     });

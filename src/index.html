@@ -32,13 +32,14 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    
+
     <div xd-navbar></div>
 
     <article class="container ui-view-container">
-        <div ui-view="home-tab"></div>
-        <div ui-view="article-tab"></div>
-        <div ui-view="account-tab"></div>
-        <div ui-view="fourth-tab"></div>
+      <div ui-view>
+        <div class="loading show"></div>
+      </div>
     </article>
 
     <div sign-modal></div>
@@ -46,7 +47,7 @@
     <div xd-footer></div>
     <div xd-alert alert-title="{{ 'alertDefaultTitle' | translate }}" alert-ok="{{ 'alertDefaultOk' | translate }}"></div>
     <div xd-loading></div>
-
+  
     <!-- build:js(src) static/scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
