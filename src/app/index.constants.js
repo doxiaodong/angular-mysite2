@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-.constant('VERSION', '2.2.0')
+.constant('VERSION', '2.3.0')
 .constant('HOST_URL', '//api.darlin.me')
 //.constant('HOST_URL', '//api.local.darlin.me')
 .constant('STATIC_URL', '//dn-darlin.qbox.me/static/')

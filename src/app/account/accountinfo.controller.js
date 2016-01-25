@@ -34,6 +34,7 @@ angular.module('app')
       getReplies(UserService.get().username);
       getRepliesOfArticle(UserService.get());
     }
+    
     $scope.$on('get_user_info', function(e, data) {
       $scope.replies = [];
       $scope.repliesOfArticle = [];

@@ -15,3 +15,7 @@ angular.module('app', [
 angular.module('darlin', [
   'app'
 ]);
+
+angular.element(document).ready(function() {
+  angular.bootstrap(document, ['darlin']);
+});

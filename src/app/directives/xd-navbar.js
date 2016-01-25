@@ -5,6 +5,7 @@ angular.module('app')
     return {
       restrict: 'A',
       replace: true,
+      controller: 'NavbarCtrl',
       templateUrl: 'app/components/navbar/navbar.html'
     };
   });
