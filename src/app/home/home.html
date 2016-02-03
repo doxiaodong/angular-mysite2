@@ -8,7 +8,7 @@
         <li class="article" ng-repeat="article in articles">
           <a class="a" ui-sref="views.article.article({category: article.category, url: encode(article.url)})">
             <div class="title">
-              {{ article.title }}
+              <span ng-if="article.isUp">{{ 'pages.article.isUp' | translate }}</span>{{ article.title }}
             </div>
             <div class="time">{{ article.createTime | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
           </a>

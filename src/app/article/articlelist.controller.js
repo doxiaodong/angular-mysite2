@@ -66,7 +66,9 @@ angular.module('app')
               url: self.url,
               title: self.title,
               createTime: self.create_time,
-              category: self.category.url
+              category: self.category.url,
+              isUp: self.is_up,
+              isHot: self.hot
             };
             $scope.articles.push(article);
           });
