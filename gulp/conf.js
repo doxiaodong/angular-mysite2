@@ -18,7 +18,7 @@ exports.paths = {
   tmp: '.tmp',
   e2e: 'e2e',
   static_host: '//static.darlin.me/'
-  // static_host: '//dn-darlin.qbox.me/'
+  // static_host: '//o4vwdjxrs.qnssl.com/'
 };
 
 /**
