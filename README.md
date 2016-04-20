@@ -11,4 +11,8 @@ mysite2前端
   2. 瞎扯淡页面
 
 ### 地址
-  [https://darlin.me/](https://darlin.me/)
+  无
+
+### 项目停止
+
+  新项目使用 angular2 地址 [https://github.com/doxiaodong/darlin-angular2](https://github.com/doxiaodong/darlin-angular2)
