@@ -17,7 +17,8 @@ exports.paths = {
   static: 'dist/static',
   tmp: '.tmp',
   e2e: 'e2e',
-  static_host: '//static.darlin.me/'
+  // static_host: '//static.darlin.me/'
+  static_host: '/'
   // static_host: '//o4vwdjxrs.qnssl.com/'
 };
 
